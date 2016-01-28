@@ -1,0 +1,107 @@
+﻿<%@ WebHandler Language="C#" Class="PurchaseCollectQuery" %>
+
+using System;
+using System.Web;
+using XBase.Common;
+using XBase.Model.Office.PurchaseManager;
+using XBase.Business.Office.PurchaseManager;
+using XBase.Business.Common;
+using System.Web.SessionState;
+using System.Collections.Generic;
+using System.Data;
+
+public class PurchaseCollectQuery : IHttpHandler, System.Web.SessionState.IRequiresSessionState
+{
+
+    public void ProcessRequest(HttpContext context)
+    {
+        if (context.Request.RequestType == "POST")
+        {
+            string Action = context.Request.Form["Action"];
+            switch (Action)
+            {
+                case "Select":
+                    GetPurCll(context);
+                    break;
+            }
+        }
+    }
+
+    public bool IsReusable
+    {
+        get
+        {
+            return false;
+        }
+    }
+    public void GetPurCll(HttpContext context)
+    {
+        string orderString = (context.Request.Form["orderBy"]);//排序
+        string order = "asc";//排序：升序
+        string orderBy = (!string.IsNullOrEmpty(orderString)) ? orderString.Substring(0, orderString.Length - 2) : "ProductID";//要排序的字段，如果为空，默认为"ID"
+        if (orderString.EndsWith("_d"))
+        {
+            order = "desc";//排序：降序
+        }
+        string CompanyCD = string.Empty;
+        try
+        {
+            CompanyCD = ((UserInfoUtil)SessionUtil.Session["UserInfo"]).CompanyCD;
+        }
+        catch
+        {
+            CompanyCD = "T0004";
+        }
+        orderBy = orderBy+" "+order;
+        int pageCount = int.Parse(context.Request.Form["pageCount"].ToString());//每页显示记录数
+        int pageIndex = int.Parse(context.Request.Form["pageIndex"].ToString());//当前页
+        string Field = context.Request.Form["Field"];//统计字段
+        string ProviderID = context.Request.Form["ProviderID"];
+        string ProviderName = context.Request.Form["ProviderName"];
+        string ProductID = context.Request.Form["ProductID"];
+        string StartDate = context.Request.Form["StartDate"];
+        string EndDate = context.Request.Form["EndDate"];
+        int totalCount = 0;
+        
+        string[] ProviderNameS = ProviderName.Split(',');
+        DataTable dt = PurchaseOrderBus.GetPurCll(CompanyCD,Field, ProviderID,ProviderName, ProductID, StartDate, EndDate, pageIndex, pageCount, orderBy, ref totalCount);
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        sb.Append("<table  id='dt_Rate' border=\"1\" cellpadding=\"0\" cellspacing=\"0\"  width=\"100%\">");
+        sb.Append("<td style=\"width:150;font-size:14;font-weight:bolder;\" align=\"center\" background=\"../../../images/Main/Table_bg.jpg\" bgcolor=\"#FFFFFF\">物品\\供应商</td>");
+        for (int i = 0; i < ProviderNameS.Length; ++i)
+        {
+            sb.Append("<td  align=\"center\" style=\"font-size:14;font-weight:bolder;\" background=\"../../../images/Main/Table_bg.jpg\" bgcolor=\"#FFFFFF\">&nbsp;" + ProviderNameS[i] + "</td>");
+        }
+        if (dt != null && dt.Rows.Count > 0)
+        {
+            foreach (DataRow row in dt.Rows)
+            {
+                sb.Append("<tr >");
+                sb.Append("<td style=\"width:150;font-size:14;font-weight:bolder;\"  align=\"center\" background=\"../../../images/Main/Table_bg.jpg\" bgcolor=\"#FFFFFF\">&nbsp;" + row["Product"].ToString() + "</td>");
+                for (int i = 0; i < ProviderNameS.Length; ++i)
+                {
+                    sb.Append("<td  align=\"center\" >&nbsp;" + row["" + ProviderNameS[i] + ""].ToString() + "</td>");
+                }
+                sb.Append("</tr>");
+
+            }
+        }
+        //sb.Append("{");
+        //sb.Append("totalCount:");
+        //sb.Append(totalCount.ToString());
+        //sb.Append(",data:");
+        //if (dt.Rows.Count == 0)
+        //{
+        //    sb.Append("\"\"");
+        //}
+        //else
+        //{
+        //    sb.Append(JsonClass.DataTable2Json(dt));
+        //}
+        //sb.Append("}");
+        //context.Response.ContentType = "text/plain";
+        context.Response.Write(sb.ToString());
+        context.Response.End();
+    }
+}

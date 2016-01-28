@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TreeView</title>
+    
+    <script language="javascript"  type="text/javascript" src="../JQuery/jquery_last.js"></script>
+    
+    <script language="javascript"  type="text/javascript" src="TreeView.js"></script>
+    
+    
+    <script language="javascript"  type="text/javascript">
+    /*
+nodes（节点数组）:
+[
+    {text:"text",value:"value",nodeType:"nodeType"，subNodes:[
+        {text:"text",value:"value",nodeType:"nodeType"，subNodes[]},
+        {text:"text",value:"value",nodeType:"nodeType"，subNodes[]}
+        ...
+    ]}，
+    
+    {}
+    
+    ...
+]
+
+node(节点)
+text:显示文字
+value:值
+nodeType：类型从1开始，如：1或2或3.。。。
+subNodes:子节点数组
+
+*/
+
+//            var nodes=[];
+//            nodes.push({text:"t1",value:"v1",nodeType:1,subNodes:[
+//                {text:"t11",value:"v11",nodeType:2,subNodes:[]},
+//                {text:"t12",value:"v12",nodeType:1,subNodes:[
+//                     {text:"t121",value:"v121",nodeType:2,subNodes:[]},
+//                    {text:"t122",value:"v122",nodeType:2,subNodes:[]}
+//                ]}
+//            ]});
+//            nodes.push({text:"t2",value:"v2",nodeType:1,subNodes:[
+//                {text:"t21",value:"v21",nodeType:2,subNodes:[]},
+//                {text:"t22",value:"v22",nodeType:2,subNodes:[]}
+//            ]});
+//            nodes.push({text:"t3",value:"v3",nodeType:1,subNodes:[
+//                {text:"t31",value:"v31",nodeType:2,subNodes:[]},
+//                {text:"t32",value:"v32",nodeType:2,subNodes:[]}
+//            ]});
+            
+            var treeview = null;
+            var treeveiwPopUp = null;
+            var treeveiwPopUp1 = null;
+            var treeveiwPopUp2 = null;
+            var treeveiwPopUp3 = null;
+            var treeveiwPopUp4 = null;
+            
+            function init(){ 
+            
+               $.ajax({ 
+                type: "POST",
+                url: "../../Handler/Common/UserDept.ashx?action=loaduserlistwithdepartment",
+                dataType:'string',
+                data: '',
+                cache:false,
+                success:function(data) 
+                {                          
+                    var result = null;
+                    eval("result = "+data);
+                    
+                    if(result.result)                    
+                    {                      
+                        LoadNodes(result.data);                     
+                    }else{                  
+                           alert(result.data);               
+                    }                   
+                },
+                error:function(data)
+                {
+                     alert(data.responseText);
+                }
+            });
+               
+               
+            
+            };
+           
+           function LoadNodes(nodes)
+           {
+                 /// <param name="containerID">TreeView的容器元素的ID</param>
+                /// <param name="nodes">节点数组</param>     
+                         
+                /// <param name="selMode">选择模式0:多选;1:单选</param>
+                /// <param name="selNodeType">可选节点类型:0不限制</param>        
+               /// <param name="expandLevel">默认展开层级</param>
+               /// <param name="mode">弹出(1) OR 平板 显示方式(0)</param>     
+               // <param name="valNodeType">取值节点类型</param>     
+                             
+               treeview = new TreeView("treeDiv",nodes);
+               
+               treeveiwPopUp = new TreeView("treeDiv2",nodes,0,0,2,1,2);
+               treeveiwPopUp1 = new TreeView("treeDiv3",nodes,1,0,2,1);
+               treeveiwPopUp2 = new TreeView("treeDiv4",nodes,0,2,3,1);
+               treeveiwPopUp3 = new TreeView("treeDiv5",nodes,1,1,2,1);              
+               treeveiwPopUp4 = new TreeView("treeDiv6",nodes,0,1,2,1);       
+           }
+           
+           //treeview.getValue() 获取选中的值
+    </script>
+    <style type="text/css">
+        #treeDiv TD{padding:2px;}
+        
+        BODY {font-size:12px;}
+    </style>
+</head>
+<body onload="init()">
+
+用类似的URL访问：
+http://192.168.1.204/<font color=red>(S(cuotqd555t3jvym1e4rbujno))</font>/js/common/TreeViewDemo.htm
+<br />
+(S(cuotqd555t3jvym1e4rbujno)) 是SESSIONID段，复制当前登陆后的URL段
+<br />
+
+平板方式：
+<input type="button" value="取值" onclick="alert(treeview.getValue());" />
+<div id="treeDiv" style="width:300px;margin:0;height:400px;overflow:auto;border:solid 1px #3366cc;"></div>
+
+
+
+<br />
+
+
+<div id="treeDiv2"  style="width:300px;margin:0;height:400px;overflow:auto;background:#f1f1f1;border:solid 1px #3366cc;">    
+</div>
+<div id="treeDiv3"  style="width:300px;margin:0;height:400px;overflow:auto;background:#f1f1f1;border:solid 1px #3366cc;">    
+</div>
+<div id="treeDiv4"  style="width:300px;margin:0;height:400px;overflow:auto;background:#f1f1f1;border:solid 1px #3366cc;">    
+</div>
+<div id="treeDiv5"  style="width:300px;margin:0;height:400px;overflow:auto;background:#f1f1f1;border:solid 1px #3366cc;">    
+</div>
+<div id="treeDiv6"  style="width:300px;margin:0;height:400px;overflow:auto;background:#f1f1f1;border:solid 1px #3366cc;">    
+</div>
+
+弹出方式：
+1：<input type="text" onclick="treeveiwPopUp.show()" />
+2：<input type="text" onclick="treeveiwPopUp1.show()" />
+3：<input type="text" onclick="treeveiwPopUp2.show()" />
+4：<input type="text" onclick="treeveiwPopUp3.show()" />
+5：<input type="text" onclick="treeveiwPopUp4.show()" />
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿.tdColTitle
+{
+	background-color:#E6E6E6;
+	text-align:right;
+}
+.tdColInput
+{
+	background-color:#FFFFFF;
+}
+.tdinput
+{
+	border-width:0pt;
+	background-color:#ffffff;
+	height:21px;
+}
+.ListTitle
+{
+    font-family: "tahoma";
+    font-size: 12px;
+    line-height:120%;
+    text-decoration:none;
+	text-align:center;
+	background-color:#E6E6E6;
+	height:22px;
+}
+
+  .Title{
+        font-family: "tahoma";
+        color:#000000;
+		font-weight: bolder;
+	    font-size: 16px;
+        line-height:120%;
+	    text-decoration:none;
+ }
+ .tdColInputCenter
+{
+	background-color:#FFFFFF;
+	text-align:center;
+}
+
+BODY {  font-family: "tahoma";
+        color:#333333;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+        margin-top:0px;
+        margin-left:0px;
+        margin-right:0px;
+		margin-bottom:0px;
+		background-color:#666666;
+}
+ .Spantype2
+{
+
+	position:absolute;top:40%;left:40%;
+	border-width:1pt;border-color:#666666;border-style:solid;
+	width:253px;
+	display:none;
+	height:100px;
+	z-index:22;
+		filter:progid:DXImageTransform.Microsoft.DropShadow(color=#cccccc,offX=4,offY=4,positives=0);
+}
+.redbold {
+	font-weight: bolder;
+	font-family: "Tahoma", "LucidaGrande";
+	font-size: 11px;
+	line-height: 130%;
+	color: #ff0000;
+	text-decoration:none
+}
+
+
+#mainindex{
+        margin-top:10px;
+        margin-left:10px;
+		background-color:#F0f0f0;
+      	font-family:"tahoma";
+      	color:#333333;
+      	font-size:12px; 
+}

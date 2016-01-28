@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0396C8F-C6C6-4AEB-97E7-958764611C77}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XBase.Business</RootNamespace>
+    <AssemblyName>Business</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Eval, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Documents and Settings\Administrator\桌面\Eval.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CheckQuoteBus.cs" />
+    <Compile Include="Common\CodePublicTypeBus.cs" />
+    <Compile Include="Common\FlowBus.cs" />
+    <Compile Include="Common\IDIdentityUtil.cs" />
+    <Compile Include="Common\ItemCodingRuleBus.cs" />
+    <Compile Include="Common\LogInfo.cs" />
+    <Compile Include="Common\LogUtil.cs" />
+    <Compile Include="Common\PrimekeyVerifyBus.cs" />
+    <Compile Include="Common\PrintParameterSettingBus.cs" />
+    <Compile Include="Common\SafeUtil.cs" />
+    <Compile Include="Common\StrongeInitBus.cs" />
+    <Compile Include="Common\SubStorageInitBus.cs" />
+    <Compile Include="Common\SysParamBus.cs" />
+    <Compile Include="Common\UnitGroup.cs" />
+    <Compile Include="Common\UploadFileBus.cs" />
+    <Compile Include="Common\UserDeptSelectBus.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteCustomInfoBus.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteOrderBus.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteProductInfoBus.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteUnitControlBus.cs" />
+    <Compile Include="Decision\Action.cs" />
+    <Compile Include="Decision\ActionDetail.cs" />
+    <Compile Include="Decision\CustAnalysis.cs" />
+    <Compile Include="Decision\DataCustLevel.cs" />
+    <Compile Include="Decision\DataKeyPrepare.cs" />
+    <Compile Include="Decision\DataKeyWord.cs" />
+    <Compile Include="Decision\DataModelExp.cs" />
+    <Compile Include="Decision\DataModelExpIt.cs" />
+    <Compile Include="Decision\DataModelGetExp.cs" />
+    <Compile Include="Decision\DataMyCollector.cs" />
+    <Compile Include="Decision\DataMySubscribe.cs" />
+    <Compile Include="Decision\DataPredict.cs" />
+    <Compile Include="Decision\DataRelation.cs" />
+    <Compile Include="Decision\DataStat.cs" />
+    <Compile Include="Decision\DataStatTimeWorker.cs" />
+    <Compile Include="Decision\DataStatTimeWorkerMM.cs" />
+    <Compile Include="Decision\SellAnalysis.cs" />
+    <Compile Include="KnowledgeCenter\KeyWordHistory.cs" />
+    <Compile Include="KnowledgeCenter\KeyWordPrepare.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeRequire.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeType.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeWarehouse.cs" />
+    <Compile Include="KnowledgeCenter\MyCollector.cs" />
+    <Compile Include="KnowledgeCenter\MyKeyWord.cs" />
+    <Compile Include="KnowledgeCenter\SubscribeHistory.cs" />
+    <Compile Include="KnowledgeCenter\SubscribeTimerWorker.cs" />
+    <Compile Include="LoginBus.cs" />
+    <Compile Include="Office\AdminManager\AttendanceApplyBus.cs" />
+    <Compile Include="Office\AdminManager\AttendanceReportBus.cs" />
+    <Compile Include="Office\AdminManager\AttendanceSetBus.cs" />
+    <Compile Include="Office\AdminManager\CarAccidentBus.cs" />
+    <Compile Include="Office\AdminManager\CarAddGasBus.cs" />
+    <Compile Include="Office\AdminManager\CarApplyBus.cs" />
+    <Compile Include="Office\AdminManager\CarDispatchBus.cs" />
+    <Compile Include="Office\AdminManager\CarInfoBus.cs" />
+    <Compile Include="Office\AdminManager\CarInsuranceBus.cs" />
+    <Compile Include="Office\AdminManager\CarMaintainBus.cs" />
+    <Compile Include="Office\AdminManager\CarPeccancyBus.cs" />
+    <Compile Include="Office\AdminManager\CarRepairBus.cs" />
+    <Compile Include="Office\AdminManager\CarYearCheckBus.cs" />
+    <Compile Include="Office\AdminManager\DailyAttendanceBus.cs" />
+    <Compile Include="Office\AdminManager\DocBus.cs" />
+    <Compile Include="Office\AdminManager\DocReceiveBus.cs" />
+    <Compile Include="Office\AdminManager\DocRequstBus.cs" />
+    <Compile Include="Office\AdminManager\DocSendBus.cs" />
+    <Compile Include="Office\AdminManager\EmployeeAttendanceSetBus.cs" />
+    <Compile Include="Office\AdminManager\EquipmentFitBus.cs" />
+    <Compile Include="Office\AdminManager\EquipmentReceiveBus.cs" />
+    <Compile Include="Office\AdminManager\EquipmentRepairBus.cs" />
+    <Compile Include="Office\AdminManager\EquipmentUselessBus.cs" />
+    <Compile Include="Office\AdminManager\EquipMnetInfoBus.cs" />
+    <Compile Include="Office\AdminManager\HolidayBus.cs" />
+    <Compile Include="Office\AdminManager\MeetingInfoBus.cs" />
+    <Compile Include="Office\AdminManager\MeetingRecordBus.cs" />
+    <Compile Include="Office\AdminManager\MeetingRoomBus.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsInfoBus.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsPurchaseApplyBus.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsStorageBus.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsUsedBus.cs" />
+    <Compile Include="Office\AdminManager\WorkGroupBus.cs" />
+    <Compile Include="Office\AdminManager\WorkPlanBus.cs" />
+    <Compile Include="Office\AdminManager\WorkShiftBus.cs" />
+    <Compile Include="Office\AdminManager\YearHolidayBus.cs" />
+    <Compile Include="Office\CustManager\ComplainBus.cs" />
+    <Compile Include="Office\CustManager\ContactHistoryBus.cs" />
+    <Compile Include="Office\CustManager\CustAdviceBus.cs" />
+    <Compile Include="Office\CustManager\CustCallBus.cs" />
+    <Compile Include="Office\CustManager\CustInfoBus.cs" />
+    <Compile Include="Office\CustManager\CustomContactImportBus.cs" />
+    <Compile Include="Office\CustManager\CustSellBus.cs" />
+    <Compile Include="Office\CustManager\LinkManBus.cs" />
+    <Compile Include="Office\CustManager\LoveBus.cs" />
+    <Compile Include="Office\CustManager\ServiceBus.cs" />
+    <Compile Include="Office\CustManager\TableExtFieldsBus.cs" />
+    <Compile Include="Office\CustManager\TalkBus.cs" />
+    <Compile Include="Office\DefManager\CreateTableViewModelBus.cs" />
+    <Compile Include="Office\DefManager\CustomModuleBus.cs" />
+    <Compile Include="Office\DefManager\DefFormBus.cs" />
+    <Compile Include="Office\DefManager\DefineBus.cs" />
+    <Compile Include="Office\DefManager\TableReportBus.cs" />
+    <Compile Include="Office\FinanceManager\AccountSubjectsBus.cs" />
+    <Compile Include="Office\FinanceManager\AcountBookBus.cs" />
+    <Compile Include="Office\FinanceManager\AdditionalItemBus.cs" />
+    <Compile Include="Office\FinanceManager\AssetTypeSettingBus.cs" />
+    <Compile Include="Office\FinanceManager\AssistantTypeBus.cs" />
+    <Compile Include="Office\FinanceManager\AutoVoucherBus.cs" />
+    <Compile Include="Office\FinanceManager\BalanceFormulaBus.cs" />
+    <Compile Include="Office\FinanceManager\BillingBus.cs" />
+    <Compile Include="Office\FinanceManager\BillingTypeBus.cs" />
+    <Compile Include="Office\FinanceManager\BlendingDetailsBus.cs" />
+    <Compile Include="Office\FinanceManager\CashFlowFormulaBus.cs" />
+    <Compile Include="Office\FinanceManager\CashFlowFormulaDetailsBus.cs" />
+    <Compile Include="Office\FinanceManager\CurrTypeSettingBus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\FinanceManager\EndItemProcessedRecordBus.cs" />
+    <Compile Include="Office\FinanceManager\EndItemProcessingBus.cs" />
+    <Compile Include="Office\FinanceManager\EndItemSettingBus.cs" />
+    <Compile Include="Office\FinanceManager\FeesBus.cs" />
+    <Compile Include="Office\FinanceManager\FinanceReportBus.cs" />
+    <Compile Include="Office\FinanceManager\FinanceWarningBus.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetDeprDetailBus.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetInfoBus.cs" />
+    <Compile Include="Office\FinanceManager\FormulaDetailsBus.cs" />
+    <Compile Include="Office\FinanceManager\IncomeBillBus.cs" />
+    <Compile Include="Office\FinanceManager\InSideChangeAccoBus.cs" />
+    <Compile Include="Office\FinanceManager\PayBillBus.cs" />
+    <Compile Include="Office\FinanceManager\ProfitFormulaBus.cs" />
+    <Compile Include="Office\FinanceManager\ReportItemSettingBus.cs" />
+    <Compile Include="Office\FinanceManager\StepsDetailsBus.cs" />
+    <Compile Include="Office\FinanceManager\StoreFetchBillBus.cs" />
+    <Compile Include="Office\FinanceManager\SubjectsBeginDetailsBus.cs" />
+    <Compile Include="Office\FinanceManager\SummarySettingBus.cs" />
+    <Compile Include="Office\FinanceManager\SummaryTypeBus.cs" />
+    <Compile Include="Office\FinanceManager\VoucherBus.cs" />
+    <Compile Include="Office\FinanceManager\VoucherTemaplateBus.cs" />
+    <Compile Include="Office\HumanManager\CommissionItemBus.cs" />
+    <Compile Include="Office\HumanManager\CommissionSalaryBus.cs" />
+    <Compile Include="Office\HumanManager\DeptInfoBus.cs" />
+    <Compile Include="Office\HumanManager\DeptQuarterBus.cs" />
+    <Compile Include="Office\HumanManager\DeptQuarterEmployeeBus.cs" />
+    <Compile Include="Office\HumanManager\EmplApplyBus.cs" />
+    <Compile Include="Office\HumanManager\EmplApplyNotifyBus.cs" />
+    <Compile Include="Office\HumanManager\EmployeeContractBus.cs" />
+    <Compile Include="Office\HumanManager\EmployeeInfoBus.cs" />
+    <Compile Include="Office\HumanManager\EmployeeTestBus.cs" />
+    <Compile Include="Office\HumanManager\HRProxyBus.cs" />
+    <Compile Include="Office\HumanManager\InputCompanyRoyaltyBus.cs" />
+    <Compile Include="Office\HumanManager\InputDepatmentRoyaltyBus.cs" />
+    <Compile Include="Office\HumanManager\InputPerformanceRoyaltyBus.cs" />
+    <Compile Include="Office\HumanManager\InputPersonalRoyaltyBus.cs" />
+    <Compile Include="Office\HumanManager\InputPersonTrueIncomeTaxBus.cs" />
+    <Compile Include="Office\HumanManager\InsuEmployeeBus.cs" />
+    <Compile Include="Office\HumanManager\InsuPersonaIncomeTaxBus.cs" />
+    <Compile Include="Office\HumanManager\InsuSocialBus.cs" />
+    <Compile Include="Office\HumanManager\MoveApplyBus.cs" />
+    <Compile Include="Office\HumanManager\MoveNotifyBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceBetterBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceCheckBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceElemBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceGradeBus.cs" />
+    <Compile Include="Office\HumanManager\PerformancePersonalBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceQueryBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceRoyaltyBaseBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceSummaryBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTaskWorkBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateEmpBus.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTypeBus.cs" />
+    <Compile Include="Office\HumanManager\PieceworkItemBus.cs" />
+    <Compile Include="Office\HumanManager\PieceworkSalaryBus.cs" />
+    <Compile Include="Office\HumanManager\RectApplyBus.cs" />
+    <Compile Include="Office\HumanManager\RectCheckElemBus.cs" />
+    <Compile Include="Office\HumanManager\RectCheckTemplateBus.cs" />
+    <Compile Include="Office\HumanManager\RectInterviewBus.cs" />
+    <Compile Include="Office\HumanManager\RectPlanBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryCompanyRoyaltySetBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryDepatmentRoyaltySetBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryEmployeeBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryEmployeeStructureSetBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryItemBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryPerformanceRoyaltySetBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryPersonalRoyaltySetBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryReportBus.cs" />
+    <Compile Include="Office\HumanManager\SalaryStandardBus.cs" />
+    <Compile Include="Office\HumanManager\TaxCalculateBus.cs" />
+    <Compile Include="Office\HumanManager\TimeItemBus.cs" />
+    <Compile Include="Office\HumanManager\TimeSalaryBus.cs" />
+    <Compile Include="Office\HumanManager\TrainingAsseBus.cs" />
+    <Compile Include="Office\HumanManager\TrainingBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\StorageProductQueryBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryBackBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliverySendListBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliverySendSaveBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryTransBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubProductSellPriceBus.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubProductSendPriceBus.cs" />
+    <Compile Include="Office\ProductionManager\BackMaterialBus.cs" />
+    <Compile Include="Office\ProductionManager\BomBus.cs" />
+    <Compile Include="Office\ProductionManager\CostProductionBus.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportBus.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureTaskBus.cs" />
+    <Compile Include="Office\ProductionManager\MasterProductScheduleBus.cs" />
+    <Compile Include="Office\ProductionManager\MRPBus.cs" />
+    <Compile Include="Office\ProductionManager\StandardSequBus.cs" />
+    <Compile Include="Office\ProductionManager\TakeMaterialBus.cs" />
+    <Compile Include="Office\ProductionManager\TechnicsArchivesBus.cs" />
+    <Compile Include="Office\ProductionManager\TechnicsRoutingBus.cs" />
+    <Compile Include="Office\ProductionManager\WorkCenterBus.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectAccountDetailsBus.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectBudgetBus.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectTotalBus.cs" />
+    <Compile Include="Office\ProjectBudget\SubBudgetBus.cs" />
+    <Compile Include="Office\ProjectManager\ProjectInfoBus.cs" />
+    <Compile Include="Office\ProjectProess\ProjectConstructionBus.cs" />
+    <Compile Include="Office\ProjectProess\ProjectGanttBus.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderContactHistoryBus.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderInfoBus.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderLinkManBus.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderProductBus.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderProductCommendBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseApplyBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseArriveBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseAskPriceBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseContractBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseOrderBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchasePlanBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRejectBus.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRequireBus.cs" />
+    <Compile Include="Office\SellManager\AdversaryInfoBus.cs" />
+    <Compile Include="Office\SellManager\AdversarySellBus.cs" />
+    <Compile Include="Office\SellManager\SelectSellContractUCBus.cs" />
+    <Compile Include="Office\SellManager\SelectSellOfferUCBus.cs" />
+    <Compile Include="Office\SellManager\SelectSellOrderDetailBus.cs" />
+    <Compile Include="Office\SellManager\SelectSellSendBus.cs" />
+    <Compile Include="Office\SellManager\SellBackBus.cs" />
+    <Compile Include="Office\SellManager\SellChanceBus.cs" />
+    <Compile Include="Office\SellManager\SellChannelSttlBus.cs" />
+    <Compile Include="Office\SellManager\SellContractBus.cs" />
+    <Compile Include="Office\SellManager\SellGatheringBus.cs" />
+    <Compile Include="Office\SellManager\SellLogCommon.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectCurrencyBus.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectCustBus.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectFeeTypeBus.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectTransporterBus.cs" />
+    <Compile Include="Office\SellManager\SellOfferBus.cs" />
+    <Compile Include="Office\SellManager\SellOrderActiveMoneyBus.cs" />
+    <Compile Include="Office\SellManager\SellOrderBus.cs" />
+    <Compile Include="Office\SellManager\SellPlanBus.cs" />
+    <Compile Include="Office\SellManager\SellProductReportBus.cs" />
+    <Compile Include="Office\SellManager\SellSendBus.cs" />
+    <Compile Include="Office\SellManager\SellSendDetailsListBus.cs" />
+    <Compile Include="Office\SellReport\SalesSummaryStatisticsBus.cs" />
+    <Compile Include="Office\SellReport\SellProductReportBus.cs" />
+    <Compile Include="Office\SellReport\UserProjectInfoBus.cs" />
+    <Compile Include="Office\StorageManager\CheckNotPassBus.cs" />
+    <Compile Include="Office\StorageManager\CheckReportBus.cs" />
+    <Compile Include="Office\StorageManager\CodeReasonTypeBus.cs" />
+    <Compile Include="Office\StorageManager\DayEndBus.cs" />
+    <Compile Include="Office\StorageManager\InTypeBus.cs" />
+    <Compile Include="Office\StorageManager\ManufactureTaskInfoBus.cs" />
+    <Compile Include="Office\StorageManager\PurchaseApplyNoPassBus.cs" />
+    <Compile Include="Office\StorageManager\PurchaseArriveInfoBus.cs" />
+    <Compile Include="Office\StorageManager\StockAccountBus.cs" />
+    <Compile Include="Office\StorageManager\StockSearchBus.cs" />
+    <Compile Include="Office\StorageManager\StorageAdjustBus.cs" />
+    <Compile Include="Office\StorageManager\StorageBorrowBus.cs" />
+    <Compile Include="Office\StorageManager\StorageBus.cs" />
+    <Compile Include="Office\StorageManager\StorageCheckBus.cs" />
+    <Compile Include="Office\StorageManager\StorageCommonBus.cs" />
+    <Compile Include="Office\StorageManager\StorageCostBus.cs" />
+    <Compile Include="Office\StorageManager\StorageCustInfo.cs" />
+    <Compile Include="Office\StorageManager\StorageInfoBus.cs" />
+    <Compile Include="Office\StorageManager\StorageInitailBus.cs" />
+    <Compile Include="Office\StorageManager\StorageInOtherBus.cs" />
+    <Compile Include="Office\StorageManager\StorageInProcessBus.cs" />
+    <Compile Include="Office\StorageManager\StorageInPurchaseBus.cs" />
+    <Compile Include="Office\StorageManager\StorageInRedBus.cs" />
+    <Compile Include="Office\StorageManager\StorageLossBus.cs" />
+    <Compile Include="Office\StorageManager\StorageMonthlyBus.cs" />
+    <Compile Include="Office\StorageManager\StorageOutOtherBus.cs" />
+    <Compile Include="Office\StorageManager\StorageOutRedBus.cs" />
+    <Compile Include="Office\StorageManager\StorageOutSellBus.cs" />
+    <Compile Include="Office\StorageManager\StorageProductAlarmBus.cs" />
+    <Compile Include="Office\StorageManager\StorageProductBus.cs" />
+    <Compile Include="Office\StorageManager\StorageQualityCheckPro.cs" />
+    <Compile Include="Office\StorageManager\StorageReturnBus.cs" />
+    <Compile Include="Office\StorageManager\StorageSearchBus.cs" />
+    <Compile Include="Office\StorageManager\StorageSellBackBus.cs" />
+    <Compile Include="Office\StorageManager\StorageTransferBus.cs" />
+    <Compile Include="Office\StorageManager\StrongeJournalBus.cs" />
+    <Compile Include="Office\StorageManager\SubDayEndBus.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellBackBus.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellOrderBus.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageAccountBus.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageBus.cs" />
+    <Compile Include="Office\SupplyChain\BankInfoBus.cs" />
+    <Compile Include="Office\SupplyChain\BusiLogicSetBus.cs" />
+    <Compile Include="Office\SupplyChain\CodeReasonFeeBus.cs" />
+    <Compile Include="Office\SupplyChain\LogCommon.cs" />
+    <Compile Include="Office\SupplyChain\OtherCorpInfoBus.cs" />
+    <Compile Include="Office\SupplyChain\ProductExtListBus.cs" />
+    <Compile Include="Office\SupplyChain\ProductInfoBus.cs" />
+    <Compile Include="Office\SupplyChain\ProductPriceChangeBus.cs" />
+    <Compile Include="Office\SupplyChain\TableExtFieldsBus.cs" />
+    <Compile Include="Office\SupplyChain\UnitGroupBus.cs" />
+    <Compile Include="Office\SupplyChain\UnitGroupDetailBus.cs" />
+    <Compile Include="Office\SystemManager\ApprovalFlowSetBus.cs" />
+    <Compile Include="Office\SystemManager\BatchNoRuleSetBus.cs" />
+    <Compile Include="Office\SystemManager\BusiLogicSetBus.cs" />
+    <Compile Include="Office\SystemManager\CategorySetBus.cs" />
+    <Compile Include="Office\SystemManager\CodePublicTypeBus.cs" />
+    <Compile Include="Office\SystemManager\CompanyBaseInfoBus.cs" />
+    <Compile Include="Office\SystemManager\CompanyModuleBus.cs" />
+    <Compile Include="Office\SystemManager\ItemCodingRuleBus.cs" />
+    <Compile Include="Office\SystemManager\OtherCorpInfoBus.cs" />
+    <Compile Include="Office\SystemManager\ParameterSettingBus.cs" />
+    <Compile Include="Office\SystemManager\ProcessLogBus.cs" />
+    <Compile Include="Office\SystemManager\RoleFunctionBus.cs" />
+    <Compile Include="Office\SystemManager\RoleInfoBus.cs" />
+    <Compile Include="Office\SystemManager\UserInfoBus.cs" />
+    <Compile Include="Office\SystemManager\UserRoleBus.cs" />
+    <Compile Include="OperatingModel\AimManager\PersonalAnalysisBus.cs" />
+    <Compile Include="OperatingModel\DecisionData\BusinessDynamicAnalysisBus.cs" />
+    <Compile Include="OperatingModel\DecisionData\PaybleAccountBus.cs" />
+    <Compile Include="OperatingModel\DecisionData\ReceivableAccountBus.cs" />
+    <Compile Include="OperatingModel\DecisionData\SalesFiguresAnalysisBus.cs" />
+    <Compile Include="OperatingModel\DecisionData\StorageAccountAnalysisBus.cs" />
+    <Compile Include="OperatingModel\HumanManager\HumanReportBus.cs" />
+    <Compile Include="OperatingModel\IntegratedData\BuyingSellingStockingBus.cs" />
+    <Compile Include="OperatingModel\IntegratedData\DayReportBus.cs" />
+    <Compile Include="OperatingModel\IntegratedData\SotreBuySellStockByDayBus.cs" />
+    <Compile Include="OperatingModel\PurchaseManager\PurchaseOrderSelect.cs" />
+    <Compile Include="PageBus.cs" />
+    <Compile Include="Personal\AddressBook\AddressBookInfo.cs" />
+    <Compile Include="Personal\Agenda\AgendaInfoBus.cs" />
+    <Compile Include="Personal\Agenda\AgendaListInfoBus.cs" />
+    <Compile Include="Personal\AimManager\AimCheckInfoBus.cs" />
+    <Compile Include="Personal\AimManager\AimInfoBus.cs" />
+    <Compile Include="Personal\AimManager\AimReport.cs" />
+    <Compile Include="Personal\AimManager\AimReportBus.cs" />
+    <Compile Include="Personal\AimManager\DeptListBus.cs" />
+    <Compile Include="Personal\Culture\CultureDocs.cs" />
+    <Compile Include="Personal\Culture\CultureType.cs" />
+    <Compile Include="Personal\Expenses\ExpensesBus.cs" />
+    <Compile Include="Personal\Expenses\ReimbursementBus.cs" />
+    <Compile Include="Personal\Expenses\SelectExpensesBus.cs" />
+    <Compile Include="Personal\Memo\PersonalMemo.cs" />
+    <Compile Include="Personal\MessageBox\GetUserDepList.cs" />
+    <Compile Include="Personal\MessageBox\MessageInputBox.cs" />
+    <Compile Include="Personal\MessageBox\MessageSendBox.cs" />
+    <Compile Include="Personal\MessageBox\MobileMsgMonitor.cs" />
+    <Compile Include="Personal\MessageBox\MyContact.cs" />
+    <Compile Include="Personal\MessageBox\MyContactGroup.cs" />
+    <Compile Include="Personal\MessageBox\PersonalAdviceInput.cs" />
+    <Compile Include="Personal\MessageBox\PersonalAdviceSend.cs" />
+    <Compile Include="Personal\MessageBox\PublicNotice.cs" />
+    <Compile Include="Personal\Note\NoteBus.cs" />
+    <Compile Include="Personal\Note\PersonalNoteReportBus.cs" />
+    <Compile Include="Personal\Scratchpad\Scratchpad.cs" />
+    <Compile Include="Personal\Task\TaskInfoBus.cs" />
+    <Compile Include="Personal\Task\TaskListBus.cs" />
+    <Compile Include="Personal\Task\TaskReportBus.cs" />
+    <Compile Include="Personal\WorkFlow\FlowReportBus.cs" />
+    <Compile Include="Personal\WorkFlow\WorkFlowBus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendNotice.cs" />
+    <Compile Include="SystemManager\ApprovalFlowSetBus.cs" />
+    <Compile Include="SystemManager\BillType.cs" />
+    <Compile Include="SystemManager\CityBus.cs" />
+    <Compile Include="SystemManager\CompanyBus.cs" />
+    <Compile Include="SystemManager\CompanyModBus.cs" />
+    <Compile Include="SystemManager\CompanyOpenServBus.cs" />
+    <Compile Include="SystemManager\ModuleFunBus.cs" />
+    <Compile Include="SystemManager\ParmsBus.cs" />
+    <Compile Include="SystemManager\ProvinceBus.cs" />
+    <Compile Include="SystemManager\SysModuleBus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\Model.csproj">
+      <Project>{105A75B7-8D4E-4571-A307-88D50C80470E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{799B538C-C2D1-43DE-8726-6B4CB61A88DE}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{4015CE44-A3C0-47CA-93B5-D82CD1046658}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

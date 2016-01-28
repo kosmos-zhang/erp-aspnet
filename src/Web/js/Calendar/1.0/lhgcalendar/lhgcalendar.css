@@ -1,0 +1,145 @@
+﻿/*
+ *@Generator -> Panel Plugins - Build 2009-4-27
+ *@Copyright (c) 2009 LiHuiGang - lhgpanel.css
+ */
+
+.cal_panel
+{
+    cursor: default;
+    border: 2px solid #0aa6e0;
+    padding: 3px 2px 2px 3px;
+    background-color: #fff;
+	background-image: url(images/d_h_bg.gif);
+	background-repeat: repeat-x;
+    font: 12px Verdana, Arial, sans-serif;
+}
+
+.cal_panel #py, .cal_panel #pm, .cal_panel #ny, .cal_panel #nm
+{
+    cursor: pointer;
+    position: absolute;
+	width: 9px;
+	height: 10px;
+	top: 17px;
+	line-height: 10px;
+	background-image: url(images/d_a_bg.gif);
+	background-repeat: no-repeat;
+}
+
+.cal_panel #date
+{
+    cursor: default;
+    position: absolute;
+	left: 34px;
+	width: 96px;
+	top: 13px !important;
+	top: 14px;
+	text-align: center;
+	height: 16px;
+	line-height: 16px;
+}
+
+.cal_panel #year, .cal_panel #month
+{
+    font: 11px Verdana, Arial, sans-serif;
+}
+
+.cal_panel #py
+{
+    left: 10px;
+	background-position: 0 -10px;
+ }
+ 
+.cal_panel #pm
+{
+	left: 24px;
+	background-position: 0 -30px;
+}
+
+.cal_panel #ny
+{
+    right: 10px;
+	+left: 144px;
+	background-position: 0 0;
+}
+
+.cal_panel #nm
+{
+    right: 24px;
+	+left: 130px;
+	background-position: 0 -20px;
+}
+
+.cal_panel table thead
+{
+	color: #0597db;
+	text-align: center;
+	height: 22px;
+	font: 14px 幼圆,Tahoma,Arial,sans-serif;
+	font-weight: bold;
+	vertical-align: top;
+}
+
+.cal_panel tbody td
+{
+	text-align: center;
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+	font: 11px Verdana, Arial, sans-serif;
+}
+
+.cal_panel .tdday
+{
+    background-image: url(images/d_t_bg.gif);
+    background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.cal_panel .tday, .cal_panel .over
+{
+    background-image: url(images/d_t_bg.gif);
+    background-repeat: no-repeat;
+	background-position: 0 -22px;
+}
+
+.cal_panel #iy, .cal_panel #im
+{
+    border: 1px solid #7f9db9;
+	height: 16px;
+	font: 11px Verdana, Arial, sans-serif;
+}
+
+.cal_panel #foot
+{
+    height: 20px;
+	margin-top: 1px;
+}
+
+.cal_panel #t1
+{
+    position: relative;
+	top: 3px;
+	background-color: #f7f7f7;
+	border: 1px solid #e3e3e3;
+	padding: 2px 5px 1px 5px;
+	_padding: 4px 5px 0px 5px;
+}
+
+.cal_panel #t2
+{
+    position: relative;
+	font: 11px Verdana, Arial, sans-serif;
+	top: 3px;
+	left: 15px;
+	color: #039;
+}
+.cal_panel #t3
+{
+    position: relative;
+	top: 3px;
+	background-color: #f7f7f7;
+	border: 1px solid #e3e3e3;
+	padding: 2px 5px 1px 5px;
+	_padding: 4px 5px 0px 5px;
+}

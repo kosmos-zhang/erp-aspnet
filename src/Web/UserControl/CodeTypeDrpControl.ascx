@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CodeTypeDrpControl.ascx.cs" Inherits="UserControl_CodeTypeDrpControl" %>
+<asp:DropDownList ID="ddlCodeType" runat="server" style="margin-top:2px;margin-left:2px;"></asp:DropDownList>

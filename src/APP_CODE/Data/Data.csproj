@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4015CE44-A3C0-47CA-93B5-D82CD1046658}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XBase.Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonUtilDBHelper.cs" />
+    <Compile Include="Common\BillTypeHelper.cs" />
+    <Compile Include="Common\CheckQuoteDBHelper.cs" />
+    <Compile Include="Common\CodePublicTypeDBHelper.cs" />
+    <Compile Include="Common\EmployeeDBHelper.cs" />
+    <Compile Include="Common\FlowDBHelper.cs" />
+    <Compile Include="Common\IDIdentityDBHelper.cs" />
+    <Compile Include="Common\ItemCodingRuleDBHelper.cs" />
+    <Compile Include="Common\LogDBHelper.cs" />
+    <Compile Include="Common\PagerDBHelper.cs" />
+    <Compile Include="Common\PrimekeyVerify.cs" />
+    <Compile Include="Common\PrimekeyVerifyDBHelper.cs" />
+    <Compile Include="Common\PrintParameterSettingDBHelper.cs" />
+    <Compile Include="Common\StrongeInit.cs" />
+    <Compile Include="Common\SubStorageInitDBHelper.cs" />
+    <Compile Include="Common\SysParamDBHelper.cs" />
+    <Compile Include="Common\UnitGroup.cs" />
+    <Compile Include="Common\UploadFileDBHelper.cs" />
+    <Compile Include="Common\UserDeptSelectDBHelper.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteCustomInfoDBHelper.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteOrderDBHelper.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteProductInfoDBHelper.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteUnitControlDBHelper.cs" />
+    <Compile Include="DBHelper\TransactionManager.cs" />
+    <Compile Include="Decision\Action.cs" />
+    <Compile Include="Decision\ActionDetail.cs" />
+    <Compile Include="Decision\CustAnalysis.cs" />
+    <Compile Include="Decision\Database.cs" />
+    <Compile Include="Decision\DataCustLevel.cs" />
+    <Compile Include="Decision\DataKeyPrepare.cs" />
+    <Compile Include="Decision\DataKeyWord.cs" />
+    <Compile Include="Decision\DataModelExp.cs" />
+    <Compile Include="Decision\DataMyCollector.cs" />
+    <Compile Include="Decision\DataMySubscribe.cs" />
+    <Compile Include="Decision\DataRelation.cs" />
+    <Compile Include="Decision\DataStat.cs" />
+    <Compile Include="Decision\DataStatWarehouse.cs" />
+    <Compile Include="Decision\SellAnalysis.cs" />
+    <Compile Include="Office\AdminManager\AttendanceReportDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarAccidentDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarAddGasDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarApplyDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarDispatchDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarInfoDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarInsuranceDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarMaintainDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarPeccancyDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarRepairDBHelper.cs" />
+    <Compile Include="Office\AdminManager\CarYearCheckDBHelper.cs" />
+    <Compile Include="Office\AdminManager\DocDBHelper.cs" />
+    <Compile Include="Office\AdminManager\DocRequstDBHelper.cs" />
+    <Compile Include="Office\AdminManager\MeetingDecisionDBHelper.cs" />
+    <Compile Include="Office\AdminManager\MeetingInfoDBHelper.cs" />
+    <Compile Include="Office\AdminManager\MeetingRecordDBHelper.cs" />
+    <Compile Include="Office\AdminManager\MeetingRoomDBHelper.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsInfoDBHelper.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsPurchaseApplyDBHelper.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsStorageDBHelper.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsUsedDBHelper.cs" />
+    <Compile Include="Office\CustManager\CustAdvice.cs" />
+    <Compile Include="Office\CustManager\CustCallDBHelper.cs" />
+    <Compile Include="Office\CustManager\CustomContactImportDBHelper.cs" />
+    <Compile Include="Office\CustManager\CustSellDBHelper.cs" />
+    <Compile Include="Office\CustManager\TableExtFieldsDBHelper.cs" />
+    <Compile Include="Office\DefManager\CreateTableViewModelDBHelper.cs" />
+    <Compile Include="Office\DefManager\CustomModuleDBHelper.cs" />
+    <Compile Include="Office\DefManager\DefFormDBHelper.cs" />
+    <Compile Include="Office\DefManager\DefineDBHelper.cs" />
+    <Compile Include="Office\DefManager\TableReportDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\AdditionalItemDBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\FinanceManager\AutoVoucherDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\BalanceFormulaDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\BlendingDetailsDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\CashFlowFormulaDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\CashFlowFormulaDetailsDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\EndItemProcessedRecordDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\EndItemProcessing.cs" />
+    <Compile Include="Office\FinanceManager\FeesDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\FinanceReportDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\FinancialBudgetDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetDeprDetailDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\FormulaDetailsDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\InSideChangeAccoDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\PayBillDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\ProfitFormulaDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\StepsDetailsDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\StoreFetchBillDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\SubjectsBeginDetailsDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\VoucherTemaplateDBHelper.cs" />
+    <Compile Include="Office\HumanManager\CommissionItemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\CommissionSalaryDBHelper.cs" />
+    <Compile Include="Office\HumanManager\EmplApplyDBHelper.cs" />
+    <Compile Include="Office\AdminManager\AttendanceApplyDBHelper.cs" />
+    <Compile Include="Office\AdminManager\DocReceiveDBHelper.cs" />
+    <Compile Include="Office\AdminManager\DocSendDBHelper.cs" />
+    <Compile Include="Office\AdminManager\EmployeeAttendanceSetDBHelper.cs" />
+    <Compile Include="Office\AdminManager\WorkGroupDBHelper.cs" />
+    <Compile Include="Office\AdminManager\WorkPlanDBHelper.cs" />
+    <Compile Include="Office\AdminManager\WorkShiftDBHelper.cs" />
+    <Compile Include="Office\CustManager\ComplainDBHelper.cs" />
+    <Compile Include="DBHelper\SqlHelper.cs" />
+    <Compile Include="DBHelper\Utility\IConnectAssist.cs" />
+    <Compile Include="DBHelper\Utility\Result.cs" />
+    <Compile Include="KnowledgeCenter\Database.cs" />
+    <Compile Include="KnowledgeCenter\KeyWordHistory.cs" />
+    <Compile Include="KnowledgeCenter\KeyWordPrepare.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeRequire.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeType.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeWarehouse.cs" />
+    <Compile Include="KnowledgeCenter\MyCollector.cs" />
+    <Compile Include="KnowledgeCenter\MyKeyWord.cs" />
+    <Compile Include="KnowledgeCenter\SubscribeHistory.cs" />
+    <Compile Include="LoginDBHelper.cs" />
+    <Compile Include="Office\AdminManager\AttendanceSetDBHelper.cs" />
+    <Compile Include="Office\AdminManager\DailyAttendanceDBHelper.cs" />
+    <Compile Include="Office\AdminManager\EquipmentFitDBHelper.cs" />
+    <Compile Include="Office\AdminManager\EquipMentInfoDBHelper.cs" />
+    <Compile Include="Office\AdminManager\EquipmentReceiveDBHelper.cs" />
+    <Compile Include="Office\AdminManager\EquipmentRepairDBHelper.cs" />
+    <Compile Include="Office\AdminManager\EquipmentUselessDBHelper.cs" />
+    <Compile Include="Office\AdminManager\HolidayDBHelper.cs" />
+    <Compile Include="Office\AdminManager\YearHolidayDBHelper.cs" />
+    <Compile Include="Office\CustManager\ContactHistoryDBHelper.cs" />
+    <Compile Include="Office\CustManager\CustInfoDBHelper.cs" />
+    <Compile Include="Office\CustManager\LinkManDBHelper.cs" />
+    <Compile Include="Office\CustManager\LoveDBHelper.cs" />
+    <Compile Include="Office\CustManager\ServiceDBHelper.cs" />
+    <Compile Include="Office\CustManager\TalkDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\AccountSubjectsDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\AcountBookDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\AssetTypeSettingDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\AssistantTypeDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\BillingDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\BillingTypeDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\CurrTypeSettingDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\EndItemSettingDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\FinanceWarningDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetInfoDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\IncomeBillDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\ReportItemSettingDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\SummarySettingDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\SummaryTypeDBHelper.cs" />
+    <Compile Include="Office\FinanceManager\VoucherDBHelper.cs" />
+    <Compile Include="Office\HumanManager\DeptInfoDBHelper.cs" />
+    <Compile Include="Office\HumanManager\DeptQuarterDBHelper.cs" />
+    <Compile Include="Office\HumanManager\DeptQuarterEmployeeDBHelper.cs" />
+    <Compile Include="Office\HumanManager\EmplApplyNotifyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\EmployeeContractDBHelper.cs" />
+    <Compile Include="Office\HumanManager\EmployeeInfoDBHelper.cs" />
+    <Compile Include="Office\HumanManager\EmployeeTestDBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\HumanManager\HRProxyDBhelper.cs" />
+    <Compile Include="Office\HumanManager\IncomeTaxPercentDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InputCompanyRoyaltyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InputDepatmentRoyaltyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InputPerformanceRoyaltyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InputPersonalRoyaltyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InputPersonTrueIncomeTaxDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InsuEmployeeDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InsuPersonaIncomeTaxDBHelper.cs" />
+    <Compile Include="Office\HumanManager\InsuSocialDBHelper.cs" />
+    <Compile Include="Office\HumanManager\MoveApplyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\MoveNotifyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceBetterDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceCheckDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceElemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceGradeDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformancePersonalDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceQueryDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceRoyaltyBaseDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceSummaryDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTaskDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateElemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateEmpDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTypeDBhelper.cs" />
+    <Compile Include="Office\HumanManager\PieceworkItemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\PieceworkSalaryDBHelper.cs" />
+    <Compile Include="Office\HumanManager\RectApplyDBHelper.cs" />
+    <Compile Include="Office\HumanManager\RectCheckElemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\RectCheckTemplateDBHelper.cs" />
+    <Compile Include="Office\HumanManager\RectInterviewDBHelper.cs" />
+    <Compile Include="Office\HumanManager\RectPlanDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryCompanyRoyaltySetDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryDepatmentRoyaltySetDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryEmployeeDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryEmployeeStructureSetDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryItemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryPerformanceRoyaltySetDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryPersonalRoyaltySetDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryReportDBHelper.cs" />
+    <Compile Include="Office\HumanManager\SalaryStandardDBHelper.cs" />
+    <Compile Include="Office\HumanManager\TimeItemDBHelper.cs" />
+    <Compile Include="Office\HumanManager\TimeSalaryDBHelper.cs" />
+    <Compile Include="Office\HumanManager\TrainingAsseDBHelper.cs" />
+    <Compile Include="Office\HumanManager\TrainingDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\StorageProductQueryDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryBackDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliverySendListDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliverySendSaveDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryTransDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubProductSellPriceDBHelper.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubProductSendPriceDBHelper.CS" />
+    <Compile Include="Office\ProductionManager\BackMaterialDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\BomDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\CostProductionDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureTaskDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\MasterProductScheduleDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\MRPDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\StandardSequDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\TakeMaterialDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\TechnicsArchivesDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\TechnicsRoutingDBHelper.cs" />
+    <Compile Include="Office\ProductionManager\WorkCenterDBHelper.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectAccountDetailsDBHelper.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectBudgetDBHelper.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectConstructionDBHelper.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectTotalDBHelper.cs" />
+    <Compile Include="Office\ProjectBudget\SubBudgetDBHelper.cs" />
+    <Compile Include="Office\ProjectManager\ProjectInfoDBHelper.cs" />
+    <Compile Include="Office\ProjectProess\ProjectConstructionDBHelper.cs" />
+    <Compile Include="Office\ProjectProess\ProjectGanttDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderContactHistoryDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderInfoDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderLinkManDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderProductCommendDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderProductDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseApplyDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseArriveDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseAskPriceDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseContractDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseOrderDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchasePlanDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRejectDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRequireDBHelper.cs" />
+    <Compile Include="Office\PurchaseManager\SelectSellOrderDetailDBHelper.cs" />
+    <Compile Include="Office\SellManager\AdversaryInfoDBHelper.cs" />
+    <Compile Include="Office\SellManager\AdversarySellDBHelper.cs" />
+    <Compile Include="Office\SellManager\SelectSellContractUCDBHelper.cs" />
+    <Compile Include="Office\SellManager\SelectSellOfferUCDBHelper.cs" />
+    <Compile Include="Office\SellManager\SelectSellOrderDetailDBHelper.cs" />
+    <Compile Include="Office\SellManager\SelectSellSendDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellBackDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellChanceDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellChannelSttlDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellContractDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellGatheringDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectCurrencyDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectCustDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectEmployeeDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectFeeTypeDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellModuleSelectTransporterDBHelpercs.cs" />
+    <Compile Include="Office\SellManager\SellOfferDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellOrderActiveMoneyDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellOrderDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellPlanDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellProductReport.cs" />
+    <Compile Include="Office\SellManager\SellSendDBHelper.cs" />
+    <Compile Include="Office\SellManager\SellSendDetailsListDBHelper.cs" />
+    <Compile Include="Office\SellReport\SalesSummaryStatisticsDBHelper.cs" />
+    <Compile Include="Office\SellReport\SellProductReportDBHepler.cs" />
+    <Compile Include="Office\SellReport\UserProjectInfoDBHelper.cs" />
+    <Compile Include="Office\StorageManager\CheckNotPassDBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\StorageManager\CheckReportDBHelper.cs" />
+    <Compile Include="Office\StorageManager\CodeReasonTypeDBHelper.cs" />
+    <Compile Include="Office\StorageManager\DayEndDBHelper.cs" />
+    <Compile Include="Office\StorageManager\InTypeDBHelper.cs" />
+    <Compile Include="Office\StorageManager\ManufactureTaskInfoDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StockAccountDBHelper.cs" />
+    <Compile Include="Office\StorageManager\PurchaseApplyNoPassDBHelper.cs" />
+    <Compile Include="Office\StorageManager\PurchaseArriveInfoDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StockSearchDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageAccountDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageAdjustDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageBorrowDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageCheckDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageCommonDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageCostDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageCustInfo.cs" />
+    <Compile Include="Office\StorageManager\StorageDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageInitailInfoDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageInOtherDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageInProcessDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageInPurchaseDHHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageInRedDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageLossDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageMonthly.cs" />
+    <Compile Include="Office\StorageManager\StorageOutOtherDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageOutRedDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageOutSellDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageProductAlarmDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageProductDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageQualityCheckPro.cs" />
+    <Compile Include="Office\StorageManager\StorageReturnDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageSearchDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageSellBackDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StorageTransferDBHelper.cs" />
+    <Compile Include="Office\StorageManager\StrongeJournalDBHelper.cs" />
+    <Compile Include="Office\StorageManager\SubDayEndDBHelper.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellBackDBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Office\SubStoreManager\SubSellOrderDBHelper.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageAccountDBHelper.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\BankInfoDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\BusiLogicSetDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\CodeReasonFeeDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\OtherCorpInfoDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\PorductExtListDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\ProductInfoDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\ProductPriceChangeDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\TableExtFieldsDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\UnitGroupDBHelper.cs" />
+    <Compile Include="Office\SupplyChain\UnitGroupDetailDBHelper.cs" />
+    <Compile Include="Office\SystemManager\ApprovalFlowSet.cs" />
+    <Compile Include="Office\SystemManager\ApprovalFlowSetDBHelper.cs" />
+    <Compile Include="Office\SystemManager\BatchNoRuleSetDBHelper.cs" />
+    <Compile Include="Office\SystemManager\BusiLogicSetDBHelper.cs" />
+    <Compile Include="Office\SystemManager\CategorySetDBHelper.cs" />
+    <Compile Include="Office\SystemManager\CodePublicType.cs" />
+    <Compile Include="Office\SystemManager\ParameterSettingDBHelper.cs" />
+    <Compile Include="Office\SystemManager\ProcessLogDBHelper.cs" />
+    <Compile Include="Office\SystemManager\CodePublicTypeDBHelper.cs" />
+    <Compile Include="Office\SystemManager\CompanyBaseInfoDBHelper.cs" />
+    <Compile Include="Office\SystemManager\CompanyModuleDBHelper.cs" />
+    <Compile Include="Office\SystemManager\ItemCodingRuleDBHelper.cs" />
+    <Compile Include="Office\SystemManager\OtherCorpInfoDBHelper.cs" />
+    <Compile Include="Office\SystemManager\RoleFunctionDBHelper.cs" />
+    <Compile Include="Office\SystemManager\RoleInfoHelper.cs" />
+    <Compile Include="Office\SystemManager\UserInfoDBHelper.cs" />
+    <Compile Include="Office\SystemManager\UserRoleDBHelper.cs" />
+    <Compile Include="OperatingModel\AimManager\PersonalAnalysisDBhelper.cs" />
+    <Compile Include="OperatingModel\DecisionData\BusinessDynamicAnalysisDBHelper.cs" />
+    <Compile Include="OperatingModel\DecisionData\PaybleAccoutDBHelper.cs" />
+    <Compile Include="OperatingModel\DecisionData\ReceivableAccountDBHelper.cs" />
+    <Compile Include="OperatingModel\DecisionData\SalesFiguresAnalysisDBHelper.cs" />
+    <Compile Include="OperatingModel\DecisionData\StorageAccountAnalysisDBHelper.cs" />
+    <Compile Include="OperatingModel\HumanManager\HumanReportDBHelper.cs" />
+    <Compile Include="OperatingModel\IntegratedData\BuyingSellingStockingDBHelper.cs" />
+    <Compile Include="OperatingModel\IntegratedData\MonthDayDBHelper.cs" />
+    <Compile Include="OperatingModel\IntegratedData\SotreBuySellStockByDayDBHelper.cs" />
+    <Compile Include="OperatingModel\PurchaseManager\PurchaseOrderSelect.cs" />
+    <Compile Include="PageHelper.cs" />
+    <Compile Include="Personal\AddressBook\AddressBookDBHelper.cs" />
+    <Compile Include="Personal\Agenda\AgendaInfoDBHelper.cs" />
+    <Compile Include="Personal\Agenda\AgendaListInfoDBHelper.cs" />
+    <Compile Include="Personal\AimManager\AimCheckInfoDBHelper.cs" />
+    <Compile Include="Personal\AimManager\AimInfoDBHelper.cs" />
+    <Compile Include="Personal\AimManager\AimReportDBHelper.cs" />
+    <Compile Include="Personal\AimManager\GetDeptListDBHelper.cs" />
+    <Compile Include="Personal\Culture\CultureDocs.cs" />
+    <Compile Include="Personal\Culture\CultureType.cs" />
+    <Compile Include="Personal\Database.cs" />
+    <Compile Include="Personal\Expenses\ExpensesDBHelper.cs" />
+    <Compile Include="Personal\Expenses\ReimbursementDBHelper.cs" />
+    <Compile Include="Personal\Expenses\SelectExpensesDBHelper.cs" />
+    <Compile Include="Personal\Memo\PersonalMemo.cs" />
+    <Compile Include="Personal\MessageBox\GetUserDepList.cs" />
+    <Compile Include="Personal\MessageBox\MessageInputBox.cs" />
+    <Compile Include="Personal\MessageBox\MessageSendBox.cs" />
+    <Compile Include="Personal\MessageBox\MobileMsgMonitor.cs" />
+    <Compile Include="Personal\MessageBox\MyContact.cs" />
+    <Compile Include="Personal\MessageBox\MyContactGroup.cs" />
+    <Compile Include="Personal\MessageBox\PersonalAdviceInput.cs" />
+    <Compile Include="Personal\MessageBox\PersonalAdviceSend.cs" />
+    <Compile Include="Personal\MessageBox\PublicNotice.cs" />
+    <Compile Include="Personal\Note\NoteDBHelper.cs" />
+    <Compile Include="Personal\Note\PersonalNoteReportDBHelper.cs" />
+    <Compile Include="Personal\Personal.cs" />
+    <Compile Include="Personal\Scratchpad\ScratchpadDBHelper.cs" />
+    <Compile Include="Personal\Task\TaskInfoDBHelper.cs" />
+    <Compile Include="Personal\Task\TaskListDBHelper.cs" />
+    <Compile Include="Personal\Task\TaskReportDBHelper.cs" />
+    <Compile Include="Personal\WorkFlow\FlowReportDBHelper.cs" />
+    <Compile Include="Personal\WorkFlow\GetUserDepList.cs" />
+    <Compile Include="Personal\WorkFlow\WorkFlowDBHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendNoticeDBHelper.cs" />
+    <Compile Include="SystemManager\ApprovalFlowSet.cs" />
+    <Compile Include="SystemManager\ApprovalFlowSetDBHelper.cs" />
+    <Compile Include="SystemManager\BillType.cs" />
+    <Compile Include="SystemManager\CityDBHelper.cs" />
+    <Compile Include="SystemManager\CompanyDBHelper.cs" />
+    <Compile Include="SystemManager\CompanyModuleDBHelper.cs" />
+    <Compile Include="SystemManager\CompanyOpenServDBHelper.cs" />
+    <Compile Include="SystemManager\ModuleFunDBHelper.cs" />
+    <Compile Include="SystemManager\ParmsDBHelper.cs" />
+    <Compile Include="Office\SystemManager\RoleInfoDBHelper.cs" />
+    <Compile Include="SystemManager\ProvinceDBHelper.cs" />
+    <Compile Include="SystemManager\SysModuleDBHelper.cs" />
+    <Compile Include="SystemManager\SysNotice.cs" />
+    <Compile Include="SystemManager\SystemDBHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\Model.csproj">
+      <Project>{105A75B7-8D4E-4571-A307-88D50C80470E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{799B538C-C2D1-43DE-8726-6B4CB61A88DE}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Operation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

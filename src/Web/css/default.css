@@ -1,0 +1,306 @@
+/*标准样式*/
+BODY {  font-family: "tahoma";
+        color:#333333;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+        margin-top:0px;
+        margin-left:0px;
+        margin-right:0px;
+		margin-bottom:0px;
+		background-color:#666666;
+}
+#mainindex{
+        margin-top:10px;
+        margin-left:10px;
+		background-color:#F0f0f0;
+      	font-family:"tahoma";
+      	color:#333333;
+      	font-size:12px; 
+}
+.PageList{ 
+        font-family: "tahoma";
+        color:#1E5CBA;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+}
+.maintable{ filter:progid:dximagetransform.microsoft.dropshadow(color=#000000,offx=2,offy=3,positive=true)}
+.mainform{ filter:progid:dximagetransform.microsoft.dropshadow(color=#666666,offx=3,offy=2,positive=true)}
+.checktable{ filter:progid:dximagetransform.microsoft.dropshadow(color=#000000,offx=2,offy=3,positive=true)}
+
+/*标准链接样式*/
+a:link {color: #3795da;
+	text-decoration: none;
+}
+a:hover {color: #ff9900;
+         text-decoration: underline;
+}
+a:visited {color: #3795da;
+         text-decoration: none;
+}
+
+.onShow
+{
+    background:url(../images/Jquery/onShow.gif) no-repeat; 
+    padding-left:25px; 
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+}
+.onFocus
+{
+    background:#E9F0FF url(../images/Jquery/onFocus.gif) no-repeat; 
+    padding-left:25px; 
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+}
+.onError
+{
+    background:#FFF2E9 url(../images/Jquery/onError.gif) no-repeat;
+    padding-left:25px;
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+}
+.onCorrect
+{
+    background:#E9FFEB url(../images/Jquery/onCorrect.gif) no-repeat;
+    padding-left:25px;
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+}
+.onLoad
+{
+    background:#E9FFEB url(../images/Jquery/onLoad.gif) no-repeat 3px 3px;
+    padding-left:25px;
+	font-size: 12px;
+	line-height:22px; 
+	vertical-align:middle;
+}
+ /*彩色字体*/
+  .Title{
+        font-family: "tahoma";
+        color:#000000;
+		font-weight: bolder;
+	    font-size: 16px;
+        line-height:120%;
+	    text-decoration:none;
+ }
+   .Blue{
+        font-family: "tahoma";
+        color:#337ad2;
+		font-weight: bolder;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+ }
+ 
+    .white{
+        font-family: "tahoma";
+        color:#ffffff;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+ }
+ /*分页控件*/
+ #PageList{
+           background:#cccccc;
+           border-color:#cccccc;
+           text-align:right;
+           Height:25px;
+           padding-right:5px;
+           padding-top:3px;
+           border:1px;}
+/*box标题*/
+.divboxtitle{background:url(../Images/Pic/Pic_system_bg.jpg); height:21px; line-height:21px; color:#ffffff; padding-left:5px;}
+.divboxtitle span{ float:left; line-height:21px; vertical-align:middle; color:#FFFFFF; font-weight:bold; padding-left:4px;}
+.divboxtitle div{ float:right; line-height:21px; vertical-align:middle; color:#FFFFFF; padding-right:4px;}
+/*box内容*/
+.divboxbody{ overflow:hidden; width:100%}
+.divboxbody .divboxbodyhack{ padding:10px;}
+/*box内容多列*/
+.divboxbody .divboxbodyleft{float:left;padding-left:5px;width:100%;}
+.divboxbody .divboxbodyright{float:right;width:100%;}
+
+
+/*按钮*/
+.Button 
+{
+	cursor:hand;
+}
+/* 提示信息提示 */
+.redbold {
+	font-weight: bolder;
+	font-family: "Tahoma", "LucidaGrande";
+	font-size: 11px;
+	line-height: 130%;
+	color: #ff0000;
+	text-decoration:none
+}
+/*两字按钮*/
+a.BtnTwo{background:url(../Images/Button/Button_Two.jpg);
+         font-family:"Tahoma","LucidaGrande";
+         font-size:12px;
+         line-height:130%;
+         text-decoration:none;
+}
+
+
+
+/*按钮*/
+TD.Bottom 
+{
+	color:Gray;
+	font-size:small;
+	text-align:left;
+}
+#ThreeColumnName
+{
+	background-color: #E3E3E3;
+	width: 10%;
+	text-align: center;
+}
+#ThreeColumnInput
+{
+	background-color: #F8FCF8;
+	width: 20%;
+	padding-left: 2px;
+}
+#OneColumnName
+{
+	background-color: #E3E3E3;
+	width: 10%;
+	text-align: center;
+}
+#OneColumnInput
+{
+	background-color: #F8FCF8;
+	width: 20%;
+	padding-left: 2px;
+}
+#TwoColumnName
+{
+	background-color: #E3E3E3;
+	width: 10%;
+	text-align: center;
+}
+#TwoColumnInput
+{
+	background-color: #F8FCF8;
+	width: 20%;
+	padding-left: 2px;
+}
+#MessageTip
+{
+	background-color: #F8FCF8;
+	width: 40%;
+	padding-left: 2px;
+}
+
+.SortDescCss{background-image:url(../Images/Logo/Desc.gif);background-repeat:no-repeat;background-position:right center;}
+.SortAscCss{background-image:url(../Images/Logo/Asc.gif);background-repeat:no-repeat;background-position:right center;}
+
+ .orderTip{ margin-left:3px;}
+ .orderClick{ cursor:pointer;}
+ .Spantype
+{
+	filter:progid:DXImageTransform.Microsoft.DropShadow(color=#cccccc,offX=4,offY=4,positives=true);
+	position:absolute;top:40%;left:40%;
+	border-width:1pt;border-color:#666666;border-style:solid;
+	width:253px;
+	display:none;
+	height:100px;
+	z-index:22;
+}
+.SpanStype1
+{
+	filter:progid:DXImageTransform.Microsoft.DropShadow(color=#cccccc,offX=4,offY=4,positives=true);
+	position:absolute;top:40%;left:40%;
+	border-width:1pt;border-color:#666666;border-style:solid;
+	width:300px;
+	display:none;
+	height:60px;
+	z-index:22;
+}
+
+#ShowPageCount{width: 28px;}
+#ToPage{width: 28px;}
+    
+.cell{
+		background-color:#FFFFFF;
+      	font-family:"tahoma";
+      	color:#333333;
+      	font-size:12px; 
+}
+.tdinput
+{
+	border-width:0pt;
+	background-color:#ffffff;
+	height:21px;
+}
+.tdColTitle
+{
+	background-color:#E6E6E6;
+	text-align:right;
+}
+.tdColTitleCenter
+{
+	background-color:#E6E6E6;
+	text-align:center;
+}
+.tdColInput
+{
+	background-color:#FFFFFF;
+}
+.tdColInputCenter
+{
+	background-color:#FFFFFF;
+	text-align:center;
+}
+.tdColInputRight
+{
+	background-color:#FFFFFF;
+	text-align:right;
+}
+.tdColInputLeft
+{
+	background-color:#FFFFFF;
+	text-align:left;
+}
+.ListTitle
+{
+    font-family: "tahoma";
+    font-size: 12px;
+    line-height:120%;
+    text-decoration:none;
+	text-align:center;
+	background-color:#E6E6E6;
+	height:22px;
+}
+.sysinfo
+{
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 12px; color: #7B2E00;
+	background-color: #FFFBEF; 
+	border: 1px solid #FFD682; 
+	background-image: url('images/Icon/XiaoIcon_050.png');
+	background-repeat: no-repeat; 
+	background-position: left center; 
+	text-align:left;
+	height: 30px;
+	line-height: 30px; 
+	padding-left: 25px; 
+	padding-right: 10px;	
+}
+
+/*统一输入框样式？
+ input[type="text"] 
+{ 
+    border-width:0pt;
+	background-color:#ffffff;
+	height:21px;
+} 
+*/

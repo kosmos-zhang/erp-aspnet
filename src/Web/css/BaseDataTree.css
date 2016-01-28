@@ -1,0 +1,32 @@
+﻿.folder_close 
+{
+    padding-left:15px; background-image:url(../Images/BaseDataTree/folder.gif); background-repeat:no-repeat; height:18px;  cursor:pointer;
+}
+.folder_open
+{
+	padding-left:15px; background-image:url(../Images/BaseDataTree/folderopen.gif); background-repeat:no-repeat; height:18px; cursor:pointer;
+}
+.folder_close_end
+{
+	padding-left:15px; background-image:url(../Images/BaseDataTree/folder.gif); background-repeat:no-repeat; height:18px; cursor:pointer;
+}
+.folder_open_end
+{
+	padding-left:15px; background-image:url(../Images/BaseDataTree/open.gif); background-repeat:no-repeat; height:18px; cursor:pointer;
+}
+.file
+{
+	padding-left: 15px;	background-image: url(../Images/BaseDataTree/join.gif); background-repeat: no-repeat; height: 18px; cursor: pointer;
+}
+.file_end
+{
+	padding-left: 15px;	background-image: url(../Images/BaseDataTree/joinbottom.gif); background-repeat: no-repeat; height: 18px; cursor: pointer;
+}	
+.list
+{
+	padding-left: 15px; background-image: url(../Images/BaseDataTree/line.gif);background-repeat: repeat-y;
+}	
+.list_last
+{
+	padding-left: 15px;
+}

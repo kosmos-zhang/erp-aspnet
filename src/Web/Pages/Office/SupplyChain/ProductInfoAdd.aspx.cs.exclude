@@ -1,0 +1,355 @@
+﻿using System;
+using System.Collections;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using XBase.Business.Office.SystemManager;
+using XBase.Business.Office.SupplyChain;
+using XBase.Common;
+using XBase.Business.Office.StorageManager;
+using XBase.Model.Office.StorageManager;
+using XBase.Model.Office.SupplyChain;
+public partial class Pages_Office_SupplyChain_ProductInfoAdd : System.Web.UI.Page
+{
+    private string TypeFlag = "";
+    public int intOtherCorpInfoID
+    {
+        get
+        {
+            int tempID = 0;
+            int.TryParse(Request["intOtherCorpInfoID"], out tempID);
+            return tempID;
+        }
+    }
+    private string Flag = "";
+    private string Code = "";
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        if (!IsPostBack)
+        {
+
+            //模板列表模块ID
+            hidModuleID.Value = ConstUtil.Menu_SerchProduct;
+            //获取请求参数
+            string requestParam = Request.QueryString.ToString();
+            //通过参数个数来判断是否从菜单过来
+            int firstIndex = requestParam.IndexOf("&");
+            //从列表过来时
+            if (firstIndex > 0)
+            {
+                //返回按钮可见
+                btnback.Visible = true;
+                //获取列表的查询条件
+                string searchCondition = requestParam.Substring(firstIndex);
+                //去除参数
+                searchCondition = searchCondition.Replace("&ModuleID=" + ConstUtil.Menu_AddProduct, string.Empty);
+                //设置检索条件
+                hidSearchCondition.Value = searchCondition;
+                //迁移页面
+                hidFromPage.Value = Request.QueryString["FromPage"];
+            }
+            else
+            {
+                //返回按钮不可见
+                btnback.Visible = false;
+            }
+            CodingRuleControl1.CodingType = ConstUtil.CODING_RULE_TYPE_ZERO;
+            CodingRuleControl1.ItemTypeID = ConstUtil.CODINGA_BASE_ITEM_PRODUCT;
+            CodingRuleControl1.TableName = "ProductInfo";
+            CodingRuleControl1.ColumnName = "ProdNo";
+            this.txt_CheckUser.Value = Convert.ToString(((UserInfoUtil)SessionUtil.Session["UserInfo"]).EmployeeID);
+            this.txtPrincipal.Value = Convert.ToString(((UserInfoUtil)SessionUtil.Session["UserInfo"]).EmployeeID);
+            this.UserPrincipal.Text = ((UserInfoUtil)SessionUtil.Session["UserInfo"]).EmployeeName;
+            this.txt_CheckUserName.Text = Convert.ToString(((UserInfoUtil)SessionUtil.Session["UserInfo"]).EmployeeName);
+            this.txt_CheckDate.Text = Convert.ToString(DateTime.Now.ToShortDateString());
+            this.txt_CreateDate.Text = Convert.ToString(DateTime.Now.ToShortDateString());
+            BindTree();
+            BindCom();//绑定下拉框
+            if (Request["intOtherCorpInfoID"] != "" && Request["intOtherCorpInfoID"] != null)
+            {
+                //string aa = Request["intOtherCorpInfoID"].ToString();
+                ProductInfoModel model = new ProductInfoModel();
+                DataTable dt = ProductInfoBus.GetProductInfoByID(int.Parse(Request["intOtherCorpInfoID"]));
+                if (dt.Rows.Count > 0)
+                {
+                    //divNo.Style.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ProdNo");
+                    //txt_ProdNo.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ProdNo");
+                    this.divNo.InnerHtml=GetSafeData.ValidateDataRow_String(dt.Rows[0], "ProdNo");
+                    txt_PYShort.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "PYShort");
+                    txt_ProductName.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ProductName");
+                    txt_ShortNam.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ShortNam");
+                    txt_BarCode.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "BarCode");
+                    txt_BigType.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "BigType");
+                    sel_GradeID.SelectedValue = GetSafeData.ValidateDataRow_String(dt.Rows[0], "GradeID");
+                    sel_UnitID.SelectedValue = GetSafeData.ValidateDataRow_String(dt.Rows[0], "UnitID");
+                    sel_Brand.SelectedValue = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Brand");
+                    sel_ColorID.SelectedValue = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ColorID");
+                    txt_Specification.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Specification");
+                    txt_Size.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Size");
+                    sel_Source.SelectedValue = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Source");
+                    txt_FromAddr.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "FromAddr");
+                    txt_DrawingNum.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "DrawingNum");
+                    //txt_ImgUrl.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ImgUrl");
+                    txt_FileNo.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "FileNo");
+                    txt_PricePolicy.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "PricePolicy");
+                    txt_Params.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Params");
+                    txt_Questions.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Questions");
+                    txt_ReplaceName.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ReplaceName");
+                    txt_Description.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Description");
+                    this.txt_CheckUser.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CheckUser");
+
+                    this.txt_CheckUserName.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CheckUserName");
+
+                    this.txtPrincipal.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Creator");
+                    this.UserPrincipal.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CreatorName");
+
+                    string StockIs = GetSafeData.ValidateDataRow_String(dt.Rows[0], "StockIs");
+                    string MinusIs = GetSafeData.ValidateDataRow_String(dt.Rows[0], "MinusIs");
+                      chk_MinusIs.Checked=StockIs=="0"?false:true;
+                      chk_StockIs.Checked = StockIs == "0" ?  false: true;
+                    sel_StorageID.SelectedValue = GetSafeData.ValidateDataRow_String(dt.Rows[0], "StorageID");
+                    txt_SafeStockNum.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "SafeStockNum");
+                    txt_MinStockNum.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "MinStockNum");
+                    txt_MaxStockNum.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "MaxStockNum");
+                    sel_ABCType.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "ABCType");
+                    sel_CalcPriceWays.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CalcPriceWays");
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardCost").IndexOf('.')>-1)
+                    txt_StandardCost.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardCost").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardCost").Length-2);
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "PlanCost").IndexOf('.') > -1)
+                    txt_PlanCost.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "PlanCost").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "PlanCost").Length-2);
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardSell").IndexOf('.') > -1)
+                    txt_StandardSell.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardSell").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardSell").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellMin").IndexOf('.') > -1)
+                        txt_SellMin.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellMin").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellMin").Length - 2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellMax").IndexOf('.') > -1)
+                    txt_SellMax.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellMax").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellMax").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "TaxRate").IndexOf('.') > -1)
+                        txt_TaxRate.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "TaxRate").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "TaxRate").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "InTaxRate").IndexOf('.') > -1)
+                        txt_InTaxRate.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "InTaxRate").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "InTaxRate").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellTax").IndexOf('.') > -1)
+                    txt_SellTax.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellTax").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellTax").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellPrice").IndexOf('.') > -1)
+                    txt_SellPrice.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellPrice").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "SellPrice").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "PagePrice").IndexOf('.') > -1)
+                    txt_PagePrice.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "PagePrice").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "PagePrice").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "TransferPrice").IndexOf('.') > -1)
+                    txt_TransfrePrice.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "TransferPrice").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "TransferPrice").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "OldStandardSell").IndexOf('.') > -1)
+                    txt_OldStandardSell.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "OldStandardSell").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "OldStandardSell").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "Discount").IndexOf('.') > -1)
+                    txt_Discount.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Discount");
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardBuy").IndexOf('.') > -1)
+                    txt_StandardBuy.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardBuy").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "StandardBuy").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "TaxBuy").IndexOf('.') > -1)
+                    txt_TaxBuy.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "TaxBuy").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "TaxBuy").Length-2);
+
+                    if (GetSafeData.ValidateDataRow_String(dt.Rows[0], "BuyMax").IndexOf('.') > -1)
+                    txt_BuyMax.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "BuyMax").Substring(0, GetSafeData.ValidateDataRow_String(dt.Rows[0], "BuyMax").Length-2);
+                    txt_Remark.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "Remark");
+                    txt_CreateDate.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CreateDate");
+                    sel_CheckStatus.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CheckStatus");
+                    txt_CheckDate.Text = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CheckDate");
+                    sel_UsedStatus.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "UsedStatus");
+                    txt_Code.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "TypeID");//隐藏
+                    string Flag= GetSafeData.ValidateDataRow_String(dt.Rows[0], "TypeFlag");
+                    txt_BigType.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "BigType");//隐藏
+                    txt_TypeID.Value = GetSafeData.ValidateDataRow_String(dt.Rows[0], "CodeName");//隐藏
+                    storage.Attributes.Add("style", "display:block;");
+                    divConfirmor.Attributes.Add("style", "display:block;");
+                    divInputNo.Attributes.Add("style", "display:none;float:left");
+                    divNo.Attributes.Add("style", "display:block;float:left");
+                    DataTable dt_stor = ProductInfoBus.GetStorageCount(int.Parse(Request["intOtherCorpInfoID"]));
+                    if (dt_stor.Rows[0]["ProductCount"].ToString().IndexOf('.')>-1)
+                    this.txt_Storage.Value = dt_stor.Rows[0]["ProductCount"].ToString().Substring(0, dt_stor.Rows[0]["ProductCount"].ToString().Length-2);
+                    txt_TypeID.Disabled = true;
+                    switch (Flag)
+                    {
+                        case "1":
+                            this.txt_BigTypeName.Value= "成品";
+                            break;
+                        case "2":
+                             this.txt_BigTypeName.Value= "原材料";
+                            break;
+                        case "3":
+                            this.txt_BigTypeName.Value= "固定资产";
+                            break;
+                        case "4":
+                            this.txt_BigTypeName.Value = "低值易耗";
+                            break;
+                        case "5":
+                            this.txt_BigTypeName.Value = "包装物";
+                            break;
+                        case "6":
+                            this.txt_BigTypeName.Value = "服务产品";
+                            break;
+                    }
+                    this.txt_CheckUserName.Text = Convert.ToString(((UserInfoUtil)SessionUtil.Session["UserInfo"]).EmployeeName);
+                    this.txt_CheckDate.Text = Convert.ToString(DateTime.Now.ToShortDateString());
+                              
+                }
+            }
+
+
+         
+        }
+    }
+    /// <summary>
+    /// 绑定树
+    /// </summary>
+    private void BindTree()
+    {
+        DataTable dt_product = CategorySetBus.GetProductType();
+        DataView dataView = dt_product.DefaultView;
+        string BigtypeName="";
+        for (int i = 1; i < 7; i++)
+        {
+            dataView.RowFilter = "TypeFlag='" + i + "'";
+            DataTable dtnew = new DataTable();
+            dtnew = dataView.ToTable();
+            TreeNode node = new TreeNode();
+            switch (i)
+            {
+                case 1:
+                    BigtypeName = "成品";
+                    break;
+                case 2:
+                    BigtypeName = "原材料";
+                    break;
+                case 3:
+                    BigtypeName = "固定资产";
+                    break;
+                case 4:
+                    BigtypeName = "低值易耗";
+                    break;
+                case 5:
+                    BigtypeName = "包装物";
+                    break;
+                case 6:
+                    BigtypeName = "服务产品";
+                    break;
+            }
+            try
+            {
+                node.Value = dtnew.Rows[0]["TypeFlag"].ToString();
+                node.Text = BigtypeName;
+                node.NavigateUrl = string.Format("javascript:javascript:void(0)");
+                BindTreeChildNodes(node,dtnew);
+                this.TreeView1.Nodes.Add(node);
+                //TreeView1.Attributes.Add("onclick", "OnTreeNodeClick()");
+                node.Expanded = false;
+            }
+            catch (Exception ex)
+            {
+ 
+            }
+          
+        }
+           
+    }
+
+
+    private void BindTreeChildNodes(TreeNode node,DataTable dt)
+    {
+        foreach (DataRow row in dt.Select("SupperID=0"))
+        {
+            TreeNode nodes = new TreeNode();
+            nodes.Text = row["CodeName"].ToString();
+            nodes.Value = row["ID"].ToString();
+            TypeFlag = row["TypeFlag"].ToString();
+            nodes.NavigateUrl = string.Format("javascript:SelectedNodeChanged('{0}','{1}','{2}');", nodes.Text, nodes.Value,TypeFlag);
+
+            LoadSubData(row["ID"].ToString(), nodes, dt);
+            node.ChildNodes.Add(nodes);
+            node.Expanded = false;
+        }
+    }
+    private void LoadSubData(string pid,TreeNode nodes, DataTable dt)
+    {
+        foreach (DataRow row in dt.Select("SupperID=" + pid))
+        {
+            TreeNode nodess = new TreeNode();
+            nodess.Text = row["CodeName"].ToString();
+            nodess.Value = row["ID"].ToString();
+            TypeFlag = row["TypeFlag"].ToString();
+            nodess.NavigateUrl = string.Format("javascript:SelectedNodeChanged('{0}','{1}','{2}');", nodess.Text, nodess.Value,TypeFlag);
+            LoadSubData(row["ID"].ToString(), nodess, dt);
+            nodes.ChildNodes.Add(nodess);
+            nodes.Expanded = false;
+        }
+    }
+
+    /// <summary>
+    /// 物品档次
+    /// </summary>
+    private void BindCom()
+    {
+        TypeFlag = "5";
+        Code = "2";
+        DataTable dt = null;
+        dt = CodePublicTypeBus.GetCodePublicByCode(TypeFlag, Code);
+        if (dt.Rows.Count > 0)
+        {
+            this.sel_GradeID.DataTextField = "TypeName";
+            sel_GradeID.DataValueField = "ID";
+            sel_GradeID.DataSource = dt;
+            sel_GradeID.DataBind();
+        }
+        Code = "1";
+         dt = CodePublicTypeBus.GetCodePublicByCode(TypeFlag, Code);
+        if (dt.Rows.Count > 0)
+        {
+            this.sel_Brand.DataTextField = "TypeName";
+            sel_Brand.DataValueField = "ID";
+            sel_Brand.DataSource = dt;
+            sel_Brand.DataBind();
+        }
+        Code = "3";
+        dt = CodePublicTypeBus.GetCodePublicByCode(TypeFlag, Code);
+        if (dt.Rows.Count > 0)
+        {
+            this.sel_ColorID.DataTextField = "TypeName";
+            sel_ColorID.DataValueField = "ID";
+            sel_ColorID.DataSource = dt;
+            sel_ColorID.DataBind();
+        }
+        dt = CodeReasonFeeBus.GetCodeUnitType();
+        if (dt.Rows.Count > 0)
+        {
+            this.sel_UnitID.DataTextField = "CodeName";
+            sel_UnitID.DataValueField = "ID";
+            sel_UnitID.DataSource = dt;
+            sel_UnitID.DataBind();
+        }
+        StorageModel model = new StorageModel();
+        UserInfoUtil userInfo = (UserInfoUtil)SessionUtil.Session["UserInfo"];
+        model.CompanyCD = userInfo.CompanyCD;
+        DataTable dt_Stor = StorageBus.GetStorageListBycondition(model);
+        if (dt_Stor.Rows.Count > 0)
+        {
+            sel_StorageID.DataSource = dt_Stor;
+            sel_StorageID.DataTextField = "StorageName";
+            sel_StorageID.DataValueField = "ID";
+            sel_StorageID.DataBind();
+        }
+    }
+}

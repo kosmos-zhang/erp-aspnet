@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{105A75B7-8D4E-4571-A307-88D50C80470E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XBase.Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\LogInfoModel.cs" />
+    <Compile Include="Common\PrintParameterSettingModel.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteCustomInfoModel.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteProductInfoModel.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteSellOrderDetailModel.cs" />
+    <Compile Include="CustomAPI\CustomWebSite\WebSiteSellOrderModel.cs" />
+    <Compile Include="Decision\CustAnalysis.cs" />
+    <Compile Include="Decision\DataCustLevel.cs" />
+    <Compile Include="Decision\DataKeyPrepare.cs" />
+    <Compile Include="Decision\DataModelExp.cs" />
+    <Compile Include="Decision\DataMyCollector.cs" />
+    <Compile Include="Decision\DataMySubscribe.cs" />
+    <Compile Include="Decision\DataStat.cs" />
+    <Compile Include="InfomationCenter\CompanyWarehouse.cs" />
+    <Compile Include="InfomationCenter\ExpertsSkill.cs" />
+    <Compile Include="InfomationCenter\ExpertsWarehouse.cs" />
+    <Compile Include="InfomationCenter\ExpertsWorkHistory.cs" />
+    <Compile Include="InfomationCenter\InfoRequire.cs" />
+    <Compile Include="InfomationCenter\InformationType.cs" />
+    <Compile Include="InfomationCenter\InfoType.cs" />
+    <Compile Include="InfomationCenter\InfoWarehouse.cs" />
+    <Compile Include="InfomationCenter\KeyWordHistory.cs" />
+    <Compile Include="InfomationCenter\KeyWordPrepare.cs" />
+    <Compile Include="InfomationCenter\MaterialProvider.cs" />
+    <Compile Include="InfomationCenter\MaterialWarehouse.cs" />
+    <Compile Include="InfomationCenter\MyCollector.cs" />
+    <Compile Include="InfomationCenter\MyKeyWord.cs" />
+    <Compile Include="InfomationCenter\NewsWarehouse.cs" />
+    <Compile Include="InfomationCenter\PolicyWarehouse.cs" />
+    <Compile Include="InfomationCenter\ProductProvider.cs" />
+    <Compile Include="InfomationCenter\ProductWarehouse.cs" />
+    <Compile Include="InfomationCenter\RecruitmentWarehouse.cs" />
+    <Compile Include="InfomationCenter\ServWarehouse.cs" />
+    <Compile Include="InfomationCenter\ShowWarehouse.cs" />
+    <Compile Include="InfomationCenter\SubscribeHistory.cs" />
+    <Compile Include="InfomationCenter\TradeWarehouse.cs" />
+    <Compile Include="InfomationCenter\WebSiteWarehouse.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsPurchaseApplyDetailModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsPurchaseApplyModel.cs" />
+    <Compile Include="Office\CustManager\CustAdvice.cs" />
+    <Compile Include="Office\CustManager\CustCallModel.cs" />
+    <Compile Include="Office\DefManager\CustomTableModel.cs" />
+    <Compile Include="Office\DefManager\ModuleTableModel.cs" />
+    <Compile Include="Office\DefManager\ReportTableModel.cs" />
+    <Compile Include="Office\DefManager\StructTable.cs" />
+    <Compile Include="Office\FinanceManager\AdditionalItemModel.cs" />
+    <Compile Include="Office\FinanceManager\BlendingDetailsModel.cs" />
+    <Compile Include="Office\FinanceManager\CashFlowFormulaDetailsModel.cs" />
+    <Compile Include="Office\AdminManager\MeetingDecisionModel.cs" />
+    <Compile Include="Office\AdminManager\MeetingTalkModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsBuyDetailModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsBuyModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsInfoModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsStorageModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsUsedDetailModel.cs" />
+    <Compile Include="Office\AdminManager\OfficeThingsUsedModel.cs" />
+    <Compile Include="Office\FinanceManager\BalanceFormulaModel.cs" />
+    <Compile Include="Office\FinanceManager\CashFlowFormulaModel.cs" />
+    <Compile Include="Office\FinanceManager\FeesDetailModel.cs" />
+    <Compile Include="Office\FinanceManager\FeesModel.cs" />
+    <Compile Include="Office\FinanceManager\FinancialBudgetModel.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetDeprAfterModel.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetDeprDetailModel.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetPeriodDeprModel.cs.cs" />
+    <Compile Include="Office\FinanceManager\FormulaDetailsModel.cs" />
+    <Compile Include="Office\FinanceManager\StepsDetailsModel.cs" />
+    <Compile Include="Office\FinanceManager\SubjectsBeginDetailsModel.cs" />
+    <Compile Include="Office\FinanceManager\VoucherTemplateDetailModel.cs" />
+    <Compile Include="Office\FinanceManager\VoucherTemplateModel.cs" />
+    <Compile Include="Office\HumanManager\CommissionItemModel.cs" />
+    <Compile Include="Office\AdminManager\AttendanceApplyModel.cs" />
+    <Compile Include="Office\AdminManager\AttendanceReportModel.cs" />
+    <Compile Include="Office\AdminManager\AttendanceReportDetailModel.cs" />
+    <Compile Include="Office\AdminManager\CarAccidentModel.cs" />
+    <Compile Include="Office\AdminManager\CarAddGasModel.cs" />
+    <Compile Include="Office\AdminManager\CarApplyModel.cs" />
+    <Compile Include="Office\AdminManager\CarDispatchModel.cs" />
+    <Compile Include="Office\AdminManager\CarInfoModel.cs" />
+    <Compile Include="Office\AdminManager\CarInsuranceModel.cs" />
+    <Compile Include="Office\AdminManager\CarMaintainModel.cs" />
+    <Compile Include="Office\AdminManager\CarPeccancyModel.cs" />
+    <Compile Include="Office\AdminManager\CarRepairModel.cs" />
+    <Compile Include="Office\AdminManager\CarYearCheckModel.cs" />
+    <Compile Include="Office\AdminManager\DocModel.cs" />
+    <Compile Include="Office\AdminManager\DocReceiveModel.cs" />
+    <Compile Include="Office\AdminManager\DocRequstModel.cs" />
+    <Compile Include="Office\AdminManager\DocSendModel.cs" />
+    <Compile Include="Office\AdminManager\EmployeeAttendanceSetModel.cs" />
+    <Compile Include="Office\AdminManager\HolidyModel.cs" />
+    <Compile Include="Office\AdminManager\MeetingInfoModel.cs" />
+    <Compile Include="Office\AdminManager\MeetingRecordModel.cs" />
+    <Compile Include="Office\AdminManager\MeetingRoomModel.cs" />
+    <Compile Include="Office\AdminManager\WorkPlanModel.cs" />
+    <Compile Include="Office\AdminManager\WorkShiftModel.cs" />
+    <Compile Include="Office\CustManager\CustTalkModel.cs" />
+    <Compile Include="Office\FinanceManager\AcountBookModel.cs" />
+    <Compile Include="Office\FinanceManager\AttestBillDetailsModel.cs" />
+    <Compile Include="KnowledgeCenter\KeyWordHistory.cs" />
+    <Compile Include="KnowledgeCenter\KeyWordPrepare.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeRequire.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeType.cs" />
+    <Compile Include="KnowledgeCenter\KnowledgeWarehouse.cs" />
+    <Compile Include="KnowledgeCenter\MyCollector.cs" />
+    <Compile Include="KnowledgeCenter\MyKeyWord.cs" />
+    <Compile Include="KnowledgeCenter\SubscribeHistory.cs" />
+    <Compile Include="Office\AdminManager\AttendanceSetModel.cs" />
+    <Compile Include="Office\AdminManager\DailyAttendanceModel.cs" />
+    <Compile Include="Office\AdminManager\EquipmentFitModel.cs" />
+    <Compile Include="Office\AdminManager\EquipmentReceiveModel.cs" />
+    <Compile Include="Office\AdminManager\EquipmentRepairModel.cs" />
+    <Compile Include="Office\AdminManager\EquipmentUselessModel.cs" />
+    <Compile Include="Office\AdminManager\EquipMnetInfoModel.cs" />
+    <Compile Include="Office\AdminManager\HolidayModel.cs" />
+    <Compile Include="Office\AdminManager\WorkGroupModel.cs" />
+    <Compile Include="Office\AdminManager\WorkShiftSetModel.cs" />
+    <Compile Include="Office\AdminManager\WorkShiftTimeModel.cs" />
+    <Compile Include="Office\AdminManager\YearHolidayModel.cs" />
+    <Compile Include="Office\CustManager\ContactHistoryModel.cs" />
+    <Compile Include="Office\CustManager\CustComplainModel.cs" />
+    <Compile Include="Office\CustManager\CustInfoModel.cs" />
+    <Compile Include="Office\CustManager\CustLoveModel.cs" />
+    <Compile Include="Office\CustManager\CustServiceModel.cs" />
+    <Compile Include="Office\CustManager\LinkManModel.cs" />
+    <Compile Include="Office\FinanceManager\AccountSubjectsModel.cs" />
+    <Compile Include="Office\FinanceManager\AssetTypeSettingModel.cs" />
+    <Compile Include="Office\FinanceManager\AttestBillModel.cs" />
+    <Compile Include="Office\FinanceManager\BillingModel.cs" />
+    <Compile Include="Office\FinanceManager\CurrencyTypeSettingModel.cs" />
+    <Compile Include="Office\FinanceManager\FinanceWarningModel.cs" />
+    <Compile Include="Office\FinanceManager\FixAssetInfoModel.cs" />
+    <Compile Include="Office\FinanceManager\FixWithInfoModel.cs" />
+    <Compile Include="Office\FinanceManager\IncomeBillModel.cs" />
+    <Compile Include="Office\FinanceManager\InSideChangeAccoModel.cs" />
+    <Compile Include="Office\FinanceManager\PayBillModel.cs" />
+    <Compile Include="Office\FinanceManager\ReportItemSettingModel.cs" />
+    <Compile Include="Office\FinanceManager\StoreFetchBillModel.cs" />
+    <Compile Include="Office\FinanceManager\SummarySettingModel.cs" />
+    <Compile Include="Office\HumanManager\CommissionSalaryModel.cs" />
+    <Compile Include="Office\HumanManager\DeptModel.cs" />
+    <Compile Include="Office\HumanManager\DeptQuarterModel.cs" />
+    <Compile Include="Office\HumanManager\EmplApplyModel.cs" />
+    <Compile Include="Office\HumanManager\EmplApplyNotifyModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeContractModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeInfoModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeSearchModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeSkillModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeTestModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeTestScoreModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeTestSearchModel.cs" />
+    <Compile Include="Office\HumanManager\HRProxyModel.cs" />
+    <Compile Include="Office\HumanManager\EmployeeHistoryModel.cs" />
+    <Compile Include="Office\HumanManager\InputCompanyRoyaltyModel.cs" />
+    <Compile Include="Office\HumanManager\InputDepatmentRoyaltyModel.cs" />
+    <Compile Include="Office\HumanManager\InputPerformanceRoyaltyModel.cs" />
+    <Compile Include="Office\HumanManager\InputPersonalRoyaltyModel.cs" />
+    <Compile Include="Office\HumanManager\InsuEmployeeModel.cs" />
+    <Compile Include="Office\HumanManager\InsuSocialModel.cs" />
+    <Compile Include="Office\HumanManager\MoveApplyModel.cs" />
+    <Compile Include="Office\HumanManager\MoveNotifyModel.cs" />
+    <Compile Include="Office\HumanManager\PercentIncomeTaxModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceBetterDetailModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceBetterModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceElemModel.cs" />
+    <Compile Include="Office\HumanManager\PerformancePersonalModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceRoyaltyBaseModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceScoreModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceSummaryModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTaskModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateElemModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateEmpModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTemplateModel.cs" />
+    <Compile Include="Office\HumanManager\PerformanceTypeModel.cs" />
+    <Compile Include="Office\HumanManager\PersonTrueIncomeTaxModel.cs" />
+    <Compile Include="Office\HumanManager\PieceworkItemModel.cs" />
+    <Compile Include="Office\HumanManager\PieceworkSalaryModel.cs" />
+    <Compile Include="Office\HumanManager\PurchaseRejectModel.cs" />
+    <Compile Include="Office\HumanManager\QuterDescribInfoModel.cs" />
+    <Compile Include="Office\HumanManager\QuterModuleSetModel.cs" />
+    <Compile Include="Office\HumanManager\RectApplyDetailModel.cs" />
+    <Compile Include="Office\HumanManager\RectApplyModel.cs" />
+    <Compile Include="Office\HumanManager\RectCheckElemModel.cs" />
+    <Compile Include="Office\HumanManager\RectCheckTemplateElemModel.cs" />
+    <Compile Include="Office\HumanManager\RectCheckTemplateModel.cs" />
+    <Compile Include="Office\HumanManager\RectGoalFromApplyModel.cs" />
+    <Compile Include="Office\HumanManager\RectGoalModel.cs" />
+    <Compile Include="Office\HumanManager\RectInterviewDetailModel.cs" />
+    <Compile Include="Office\HumanManager\RectInterviewModel.cs" />
+    <Compile Include="Office\HumanManager\RectPlanModel.cs" />
+    <Compile Include="Office\HumanManager\RectPlanSearchModel.cs" />
+    <Compile Include="Office\HumanManager\RectPublishModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryCompanyRoyaltySetModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryCustomerRoyaltySetModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryDepatmentRoyaltySetModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryEmployeeModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryEmployeeStructureSetModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryItemModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryPerformanceRoyaltySetModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryPersonalRoyaltySetModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryReportDetailModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryReportModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryReportSummaryModel.cs" />
+    <Compile Include="Office\HumanManager\SalaryStandardModel.cs" />
+    <Compile Include="Office\HumanManager\TimeItemModel.cs" />
+    <Compile Include="Office\HumanManager\TimeSalaryModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingAsseModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingAsseSearchModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingDetailModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingScheduleModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingSearchModel.cs" />
+    <Compile Include="Office\HumanManager\TrainingUserModel.cs" />
+    <Compile Include="Office\HumanManager\WaitEnterModel.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryBack.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryBackDetail.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliverySend.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliverySendDetail.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryTrans.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubDeliveryTransDetail.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubProductSellPrice.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubProductSendPrice.cs" />
+    <Compile Include="Office\LogisticsDistributionManager\SubStorageProductModel.cs" />
+    <Compile Include="Office\OperatingModel\SalesFiguresAnalysisModel.cs" />
+    <Compile Include="Office\OperatingModel\SubStoreInvoicingDateRptModel.cs" />
+    <Compile Include="Office\ProductionManager\BackMaterialModel.cs" />
+    <Compile Include="Office\ProductionManager\BomModel.cs" />
+    <Compile Include="Office\ProductionManager\CostDetailsModel.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportMachineModel.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportMeterialModel.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportModel.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportProductModel.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureReportStaffModel.cs" />
+    <Compile Include="Office\ProductionManager\ManufactureTaskModel.cs" />
+    <Compile Include="Office\ProductionManager\MasterProductScheduleModel.cs" />
+    <Compile Include="Office\ProductionManager\MRPDetailModel.cs" />
+    <Compile Include="Office\ProductionManager\MRPModel.cs" />
+    <Compile Include="Office\ProductionManager\ProcutionCostModel.cs" />
+    <Compile Include="Office\ProductionManager\StandardSequModel.cs" />
+    <Compile Include="Office\ProductionManager\TakeMaterialModel.cs" />
+    <Compile Include="Office\ProductionManager\TechnicsArchivesModel.cs" />
+    <Compile Include="Office\ProductionManager\TechnicsRoutingModel.cs" />
+    <Compile Include="Office\ProductionManager\WorkCenterModel.cs" />
+    <Compile Include="Office\ProjectBudget\BudgetPrice.cs" />
+    <Compile Include="Office\ProjectBudget\BudgetSummary.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectBudgetInfo.cs" />
+    <Compile Include="Office\ProjectBudget\ProjectConstructionModel.cs" />
+    <Compile Include="Office\ProjectBudget\SubBudgetModel.cs" />
+    <Compile Include="Office\ProjectManager\ProjectInfoModel.cs" />
+    <Compile Include="Office\ProjectProess\ProjectConstructionDetails.cs" />
+    <Compile Include="Office\ProjectProess\ProjectConstructionModel.cs" />
+    <Compile Include="Office\PurchaseManager\ProductModel.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderContactHistoryModel.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderInfoModel.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderLinkManModel.cs" />
+    <Compile Include="Office\PurchaseManager\ProviderProductModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseApplyDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseApplyDetailSouceModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseApplyDetailSourceModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseApplyModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseArriveDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseArriveModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseAskPriceDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseAskPriceHistoryModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseAskPriceModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseContractDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseContractModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseOrderDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseOrderMiniModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseOrderModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchasePlanDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchasePlanModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchasePlanSourceModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRejectDetailModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRejectModel.cs" />
+    <Compile Include="Office\PurchaseManager\PurchaseRequireModel.cs" />
+    <Compile Include="Office\SellManager\AdversaryDynamicModel.cs" />
+    <Compile Include="Office\SellManager\AdversaryInfoModel.cs" />
+    <Compile Include="Office\SellManager\AdversarySellModel.cs" />
+    <Compile Include="Office\SellManager\SellBackDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellBackModel.cs" />
+    <Compile Include="Office\SellManager\SellChanceModel.cs" />
+    <Compile Include="Office\SellManager\SellChancePushModel.cs" />
+    <Compile Include="Office\SellManager\SellChannelSttlDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellChannelSttlModel.cs" />
+    <Compile Include="Office\SellManager\SellContractDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellContractModel.cs" />
+    <Compile Include="Office\SellManager\SellGatheringModel.cs" />
+    <Compile Include="Office\SellManager\SellOfferDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellOfferHistoryModel.cs" />
+    <Compile Include="Office\SellManager\SellOfferModel.cs" />
+    <Compile Include="Office\SellManager\SellOrderDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellOrderFeeDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellOrderModel.cs" />
+    <Compile Include="Office\SellManager\SellPlanDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellPlanModel.cs" />
+    <Compile Include="Office\SellManager\SellSendDetailModel.cs" />
+    <Compile Include="Office\SellManager\SellSendDetailsListModel.cs" />
+    <Compile Include="Office\SellManager\SellSendModel.cs" />
+    <Compile Include="Office\SellReport\SellReportDetailModel.cs" />
+    <Compile Include="Office\SellReport\SellReportModel.cs" />
+    <Compile Include="Office\SellReport\UserProductInfo.cs" />
+    <Compile Include="Office\StorageManager\CheckNotPassDetailModel.cs" />
+    <Compile Include="Office\StorageManager\CheckNotPassModel.cs" />
+    <Compile Include="Office\StorageManager\DayEndModelDetail.cs" />
+    <Compile Include="Office\StorageManager\StockAccountModel.cs" />
+    <Compile Include="Office\StorageManager\StorageAccountModel.cs" />
+    <Compile Include="Office\StorageManager\StorageAdjustDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageAdjustModel.cs" />
+    <Compile Include="Office\StorageManager\StorageBorrow.cs" />
+    <Compile Include="Office\StorageManager\StorageBorrowDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageCheck.cs" />
+    <Compile Include="Office\StorageManager\StorageCheckDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageInfoModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInitailDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInitailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInitialDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInitialModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInOtherDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInOtherModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInProcessDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageInProcessDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInProcessModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInPurchaseDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInPurchaseModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInRedDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageInRedModel.cs" />
+    <Compile Include="Office\StorageManager\StorageLossDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageLossModel.cs" />
+    <Compile Include="Office\StorageManager\StorageModel.cs" />
+    <Compile Include="Office\StorageManager\StorageMonthlyModel.cs" />
+    <Compile Include="Office\StorageManager\StorageOutOtherDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageOutOtherModel.cs" />
+    <Compile Include="Office\StorageManager\StorageOutRedDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageOutRedModel.cs" />
+    <Compile Include="Office\StorageManager\StorageOutSellDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageOutSellModel.cs" />
+    <Compile Include="Office\StorageManager\StorageProductModel.cs" />
+    <Compile Include="Office\StorageManager\StorageQualityCheckApplay.cs" />
+    <Compile Include="Office\StorageManager\StorageQualityCheckApplyDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageQualityCheckReport.cs" />
+    <Compile Include="Office\StorageManager\StorageQualityCheckReportDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageReturn.cs" />
+    <Compile Include="Office\StorageManager\StorageReturnDetail.cs" />
+    <Compile Include="Office\StorageManager\StorageSellBackDetailModel.cs" />
+    <Compile Include="Office\StorageManager\StorageTransfer.cs" />
+    <Compile Include="Office\StorageManager\StorageTransferDetail.cs" />
+    <Compile Include="Office\StorageManager\SubStorageAccountModel.cs" />
+    <Compile Include="Office\StorageManager\SubStorageDailyModel.cs" />
+    <Compile Include="Office\SubStoreManager\ProductModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubDeliveryBackDetailModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubDeliveryBackModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellBackDetailModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellBackModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellCustInfoModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellOrderDetailModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubSellOrderModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageAccountModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageInDetailModel.cs" />
+    <Compile Include="Office\SubStoreManager\SubStorageInModel.cs" />
+    <Compile Include="Office\SupplyChain\BankInfoModel.cs" />
+    <Compile Include="Office\SupplyChain\BusiLogicSetModel.cs" />
+    <Compile Include="Office\SupplyChain\CodeReasonFeeModel.cs" />
+    <Compile Include="Office\SupplyChain\OtherCorpInfoModel.cs" />
+    <Compile Include="Office\SupplyChain\ProductInfoModel.cs" />
+    <Compile Include="Office\SupplyChain\ProductPriceChangeModel.cs" />
+    <Compile Include="Office\SupplyChain\TableExtFields.cs" />
+    <Compile Include="Office\SupplyChain\UnitGroupDetailModel.cs" />
+    <Compile Include="Office\SupplyChain\UnitGroupModel.cs" />
+    <Compile Include="Office\SystemManager\BatchNoRuleSet.cs" />
+    <Compile Include="Office\SystemManager\BillTypeModel.cs" />
+    <Compile Include="Office\SystemManager\BusiLogicSetModel.cs" />
+    <Compile Include="Office\SystemManager\CodeEquipmentTypeModel.cs" />
+    <Compile Include="Office\SystemManager\CodePublicType.cs" />
+    <Compile Include="Office\SystemManager\CodePublicTypeModel.cs" />
+    <Compile Include="Office\SystemManager\FlowModel.cs" />
+    <Compile Include="Office\SystemManager\ItemCodingRuleModel.cs" />
+    <Compile Include="Office\SystemManager\RoleFunModel.cs" />
+    <Compile Include="Office\SystemManager\UserInfoModel.cs" />
+    <Compile Include="Office\SystemManager\UserRoleModel.cs" />
+    <Compile Include="Personal\AddressBook\LinkmanType.cs" />
+    <Compile Include="Personal\AddressBook\PersonalLinkman.cs" />
+    <Compile Include="Personal\Agenda\PersonalDateArrange.cs" />
+    <Compile Include="Personal\AimManager\AimCheckInfoModel.cs" />
+    <Compile Include="Personal\AimManager\AimInfoModel.cs" />
+    <Compile Include="Personal\Culture\CultureDocs.cs" />
+    <Compile Include="Personal\Culture\CultureType.cs" />
+    <Compile Include="Personal\Expenses\ExpDetailsModel.cs" />
+    <Compile Include="Personal\Expenses\ExpensesApplyModel.cs" />
+    <Compile Include="Personal\Expenses\ReimbDetailsModel.cs" />
+    <Compile Include="Personal\Expenses\ReimbursementModel.cs" />
+    <Compile Include="Personal\Memo\PersonalMemo.cs" />
+    <Compile Include="Personal\MessageBox\MessageInputBox.cs" />
+    <Compile Include="Personal\MessageBox\MessageSendBox.cs" />
+    <Compile Include="Personal\MessageBox\MobileMsgMonitor.cs" />
+    <Compile Include="Personal\MessageBox\MyContact.cs" />
+    <Compile Include="Personal\MessageBox\MyContactGroup.cs" />
+    <Compile Include="Personal\MessageBox\PersonalAdviceInput.cs" />
+    <Compile Include="Personal\MessageBox\PersonalAdviceSend.cs" />
+    <Compile Include="Personal\MessageBox\PublicNotice.cs" />
+    <Compile Include="Personal\Note\NoteInfoModel.cs" />
+    <Compile Include="Personal\Note\PersonalNoteReportModel.cs" />
+    <Compile Include="Personal\PersonalScratchpad\PersonalScratchpad.cs" />
+    <Compile Include="Personal\Scratchpad\Scratchpad.cs" />
+    <Compile Include="Personal\Task\TaskModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Office\SystemManager\RoleInfoModel.cs" />
+    <Compile Include="Office\SystemManager\CompanyBaseInfoModel.cs" />
+    <Compile Include="SystemManager\CompanyBaseInfoModel.cs" />
+    <Compile Include="SystemManager\CompanyModel.cs" />
+    <Compile Include="SystemManager\CompanyModuleModel.cs" />
+    <Compile Include="SystemManager\CompanyOpenServModel.cs" />
+    <Compile Include="SystemManager\SysNotice.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

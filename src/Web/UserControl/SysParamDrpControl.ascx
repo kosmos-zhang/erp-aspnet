@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="SysParamDrpControl.ascx.cs" Inherits="UserControl_SysParamDrpControl" %>
+<asp:DropDownList ID="ddlSysParam" runat="server"></asp:DropDownList>

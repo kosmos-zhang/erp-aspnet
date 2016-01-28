@@ -1,0 +1,779 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductInfoAdd.aspx.cs" Inherits="Pages_Office_SupplyChain_ProductInfoAdd" %>
+
+<%@ Register src="../../../UserControl/Message.ascx" tagname="Message" tagprefix="uc1" %>
+<%@ Register src="../../../UserControl/CodingRuleControl.ascx" tagname="CodingRuleControl" tagprefix="uc2" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>物品档案</title>
+    <link href="../../../css/default.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../../../js/common/PageBar-1.1.1.js"></script>
+    <link href="../../../css/pagecss.css" type="text/css" rel="Stylesheet" />
+    <script src="../../../js/common/check.js" type="text/javascript"></script>
+    <script src="../../../js/common/Check.js" type="text/javascript"></script>
+    <script src="../../../js/common/Page.js" type="text/javascript"></script>
+    <script src="../../../js/common/Common.js" type="text/javascript"></script>
+    <script src="../../../js/Calendar/WdatePicker.js" type="text/javascript"></script>
+    <script src="../../../js/common/UserOrDeptSelect.js" type="text/javascript"></script>
+    <script src="../../../js/common/UploadFile.js" type="text/javascript"></script>
+
+    <script src="../../../js/JQuery/jquery_last.js" type="text/javascript"></script>
+      <style type="text/css">
+        #pageDataList1 TD{color:#333333;}
+        #pageDataList1 A{color:White;}
+          #userList 
+        {
+            border:solid 1px #111111;
+            width:180px;
+            height:300px;
+            z-index:11;
+            display:none;
+            position:absolute;
+            background-color:White;
+           overflow-x: hidden;overflow-y:auto;
+
+            
+        }
+        
+        #editPanel
+        {
+            width:400px;
+            background-color:#fefefe;
+            position:absolute;
+            border:solid 1px #000000;
+            padding:5px;
+        }
+    </style>
+   <%-- <style type="text/css">
+        .drp{ z-index}
+    </style>--%>
+    <script type="text/javascript">
+      function ChangeValue()
+    {
+      document.getElementById("lblmsg").innerHTML=document.getElementById("chk_StockIs").checked?"是":"否";
+     document.getElementById("lblmsg_").innerHTML=document.getElementById("chk_MinusIs").checked?"是":"否";
+    }
+    
+function SelectedNodeChanged(code_text,type_code,typeflag)
+{   
+   document.getElementById("txt_BigType").value=typeflag;
+   document.getElementById("txt_TypeID").value=code_text;
+   document.getElementById("txt_Code").value=type_code;
+   switch(typeflag)
+   {
+    case "1":
+     document.getElementById("txt_BigTypeName").value="成品";
+     break;
+     case "2":
+     document.getElementById("txt_BigTypeName").value="原材料";
+     break;
+     case "3":
+     document.getElementById("txt_BigTypeName").value="固定资产";
+     break;
+     case "4":
+     document.getElementById("txt_BigTypeName").value="低值易耗";
+     break;
+     case "5":
+     document.getElementById("txt_BigTypeName").value="包装物";
+     break;
+     case "6":
+     document.getElementById("txt_BigTypeName").value="服务产品";
+     break;
+   }
+   hideUserList();
+}
+    function hidetxtUserList()
+    {
+        hideUserList();
+        document.getElementById("txt_TypeID").value="";
+    }
+    
+       function getChildNodes(nodeTable)
+      {
+            if(nodeTable.nextSibling == null)
+                return [];
+            var nodes = nodeTable.nextSibling;  
+           
+            if(nodes.tagName == "DIV")
+            {
+                return nodes.childNodes;//return childnodes's nodeTables;
+            }
+            return [];
+      }
+        function showUserList()
+        {
+            var list = document.getElementById("userList");
+           
+            if(list.style.display != "none")
+            {
+                list.style.display = "none";
+                return;
+            }
+            
+            var pos = elePos(document.getElementById("txt_TypeID"));
+            
+            list.style.left = pos.x;
+            list.style.top = pos.y+20;
+            document.getElementById("userList").style.display = "block";
+        }
+        
+        
+        function hideUserList()
+        {
+            document.getElementById("userList").style.display = "none";
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../../css/default.css" />
+    <style type="text/css">
+        #sel_UsedStatus
+        {
+            width: 106px;
+        }
+        #sel_PayType
+        {
+            width: 106px;
+        }
+        #sel_PayType0
+        {
+            width: 106px;
+        }
+        #sel_BillType
+        {
+            width: 106px;
+        }
+        #sel_BigType
+        {
+            width: 109px;
+        }
+        #sel_BigType0
+        {
+            width: 109px;
+        }
+        #Select2
+        {
+            width: 106px;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <form id="frmMain" runat="server">                                        <uc1:Message ID="Message1" runat="server" />
+
+                            <input type="hidden" id="txtIndentityID" value="0" runat="server" />
+    <table width="95%" height="57" border="0" cellpadding="0" cellspacing="0" class="maintable"
+        id="mainindex">
+        <tr>
+            <td valign="top">
+                <input type="hidden" id="hiddenEquipCode" value="" />
+                <img src="../../../images/Main/Line.jpg" width="122" height="7" />
+            </td>
+            <td align="center" valign="top">
+            </td>
+        </tr>
+        <tr>
+            <td height="30" colspan="2" valign="top" class="Title">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="30" align="center" class="Title">
+                            <% if (this.intOtherCorpInfoID > 0)
+                               { %>物品档案<%}
+                               else
+                               { %>
+                               新建物品档案
+                            <%} %>
+                            
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#999999">
+                    <tr>
+                        <td height="28" align="left" bgcolor="#FFFFFF">
+                            <!-- Start 单据状态值 -->
+                            <table width="100%">
+                                <tr>
+                                    <td>
+                                        <img id="btnAdd" src="../../../images/Button/Bottom_btn_save.jpg" onclick="Fun_Save_ProductInfo();"
+                                            style="cursor: pointer; float:left" title="保存物品信息" /><span id="GlbFlowButtonSpan"></span>
+                                       <img 
+                                           alt="确认"  src="../../../Images/Button/Bottom_btn_confirm.jpg"  id="btn_AD" onclick="ChangeStatus();"
+                                            style="width: 51px; height: 25px; display:none; float:left" />
+                                        <img alt="无法确认" src="../../../Images/Button/UnClick_qr.jpg" id="btnunsure"
+                                            style="width: 51px; height: 27px; float:left" /> 
+                                            <img src="../../../images/Button/Bottom_btn_back.jpg" border="0"  style=" float:left;" id="btnback" onclick="DoBack();" runat="server"/></td>
+                                    <td align="right">
+                                        &nbsp;</td>
+                                </tr>
+                            </table>
+                            </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="6">
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999">
+                    <tr>
+                        <td height="20" bgcolor="#F4F0ED" class="Blue">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td>
+                                        基本信息
+                                    </td>
+                                    <td align="right">
+                                        <div id='searchClick1'>
+                                            <img src="../../../images/Main/Close.jpg" style="cursor: pointer" onclick="oprItem('Tb_01','searchClick1')" /></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999"
+                    id="Tb_01" style="display: block">
+                    <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            物品编号<span class="redbold">*</span>
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                             <div id="divInputNo" runat="server" style="float:left">
+                                <uc2:CodingRuleControl ID="CodingRuleControl1" runat="server" />
+                            </div>
+                            <div id="divNo" runat="server" class="tdinput" style="float:left" ></div>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            物品名称<span class="redbold">*</span>
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_ProductName" onmouseout="LoadPYShort();" MaxLength="50" 
+                                runat="server" CssClass="tdinput" 
+                                Width="51%"></asp:TextBox>
+                        </td>
+                        <td rowspan="7" class="tdColInput" align="center">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <img id="imgPhoto" runat="server" src="~/Images/Pic/Pic_Nopic.jpg" height="145" width="200" />
+                                <asp:HiddenField ID="hfPhotoUrl" runat="server" />
+                                <asp:HiddenField ID="hfPagePhotoUrl" runat="server" />
+                                <input type="hidden" id="uploadKind" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" onclick="DealEmployeePhoto('upload');">上传相片</a></td>
+                            <td><a href="#" onclick="DealEmployeePhoto('clear');">清除相片</a></td>
+                        </tr>
+                    </table>
+                  </td>
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          拼音缩写
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_PYShort" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  />
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            名称简称<span class="redbold">*</span>
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_ShortNam" name="txtConfirmorReal3" class="tdinput"
+                                 runat="server" size="20"  /></td>
+                    </tr>
+                     <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            条码
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input id="txt_BarCode" cols="20" name="S1" class="tdinput" runat="server"></td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            物品档次级别
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                          <asp:DropDownList ID="sel_GradeID" runat="server" Width="106px">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                       <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            品牌
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:DropDownList ID="sel_Brand" runat="server" Width="106px">
+                            </asp:DropDownList>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            颜色
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                               <asp:DropDownList ID="sel_ColorID" runat="server" Width="106px">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            尺寸
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_Size" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  />
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            单位&nbsp; </td>
+                        <td height="20" class="tdColInput" width="23%">
+                           <asp:DropDownList ID="sel_UnitID" runat="server" Width="106px" >
+                            </asp:DropDownList></td> 
+                    </tr>
+                    
+                    
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                                                        物品分类<span class="redbold">*</span></td>
+                        <td height="20" class="tdColInput" width="23%">
+                             &nbsp;<input type="text" id="txt_TypeID" readonly onclick="showUserList()" class="tdinput" runat="server"/></td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                                                        所属大类</td>
+                        <td height="20" class="tdColInput" width="23%">
+                             <input type="text"  runat="server" id="txt_BigTypeName" readonly class="tdinput"/></td>
+                    </tr>
+                     <tr>
+                        <td align="right" class="tdColTitle" width="10%">
+                            规格型号&nbsp;
+                        </td>
+                        <td class="tdColInput" width="23%">
+                            <input id="txt_Code" type="hidden" runat="server" />
+                            <input type="text" id="txt_Specification" name="txtConfirmorReal2" class="tdinput"
+                                 runat="server"  />
+                        </td>
+                        <td align="right" class="tdColTitle" width="10%">
+                            </td>
+                        <td class="tdColInput" width="23%">
+                            </td>
+                    </tr>
+                </table>
+                
+                 <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999">
+                    <tr>
+                        <td height="20" bgcolor="#F4F0ED" class="Blue">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td>
+                                        价格信息
+                                        <input id="txtPlanNoHidden" type="hidden" />
+                                        <input id="txt_TypeCode" type="hidden" />
+                                        <asp:HiddenField ID="hidModuleID" runat="server" />
+                           
+                                    </td>
+                                    <td align="right">
+                                        <div id='searchClick2'>
+                                            <input id="Hidden1" type="hidden" />
+                            <asp:HiddenField ID="txt_BigType" runat="server"  runat="server"/>
+                                            <img src="../../../images/Main/Close.jpg" style="cursor: pointer" onclick="oprItem('Tb_02','searchClick2')" /></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999"
+                    id="Tb_02" style="display: block">
+                    <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                                                       ABC分类</td>
+                        <td height="20" class="tdColInput" width="23%">
+                            &nbsp;<asp:DropDownList ID="sel_ABCType" runat="server" Width="106px">
+                                  <asp:ListItem Value="A">A类</asp:ListItem>
+                              <asp:ListItem Value="B">B类</asp:ListItem>
+                              <asp:ListItem Value="C">C类</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           成本核算计价方法
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:DropDownList ID="sel_CalcPriceWays" runat="server" Width="106px">
+                               <asp:ListItem Value="1">加权平均法</asp:ListItem>
+                               <asp:ListItem Value="2">先进先出法</asp:ListItem>
+                               <asp:ListItem Value="3">个别计价法</asp:ListItem>
+                            </asp:DropDownList>
+                                                    </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          标准成本(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <input type="text" id="txt_StandardCost" name="txtConfirmorReal1" class="tdinput"
+                                 runat="server" Width="95%"  /></td>
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          计划成本(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_PlanCost" runat="server" class="tdinput"></asp:TextBox>
+                                                    </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            去税售价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_StandardSell" runat="server" class="tdinput" Width="121px" onblur="LoadSellTaxNew()"></asp:TextBox>
+                                                    </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          最低售价限制(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <asp:TextBox ID="txt_SellMin" runat="server" class="tdinput"></asp:TextBox>
+                                                    </td>
+                    </tr>
+                     <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%"  >
+                          最高售价限制(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_SellMax" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  /></div>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           销项税率(%)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_TaxRate" MaxLength="50" runat="server" CssClass="tdinput" 
+                                Width="45%" onblur="LoadSellTaxNew()"></asp:TextBox>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           进项税率(%)
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <asp:TextBox ID="txt_InTaxRate" MaxLength="50" runat="server" CssClass="tdinput" 
+                                width="24%"></asp:TextBox>
+                         </td>
+                    </tr>
+                          <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%"  >
+                          含税售价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_SellTax" name="txtConfirmorReal0" class="tdinput" width="24%"
+                                 runat="server"  /></div>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           零售价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_SellPrice" MaxLength="50" runat="server" CssClass="tdinput" 
+                                 width="45%"></asp:TextBox>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          挂牌价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <asp:TextBox ID="txt_PagePrice" MaxLength="50" runat="server" CssClass="tdinput" 
+                                width="45%"></asp:TextBox></td>
+                    </tr>
+                        <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%"  >
+                          调拨单价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_TransfrePrice" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  />
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           原去税售价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_OldStandardSell" MaxLength="50" runat="server" CssClass="tdinput" 
+                                 width="45%"></asp:TextBox>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          折扣率(%)
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                             <asp:TextBox ID="txt_Discount" MaxLength="50" runat="server" CssClass="tdinput" 
+                                 width="24%"></asp:TextBox></td>
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%"  >
+                        含税进价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_StandardBuy" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  />
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           去税进价(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_TaxBuy" MaxLength="50" runat="server" CssClass="tdinput" 
+                                 width="45%"></asp:TextBox>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                          最高采购价限制(元)
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <asp:TextBox ID="txt_BuyMax" MaxLength="50" runat="server" CssClass="tdinput" 
+                                 width="45%"></asp:TextBox></td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999">
+                    <tr>
+                        <td height="20" bgcolor="#F4F0ED" class="Blue">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td>
+                                        库存信息
+                                    </td>
+                                    <td align="right">
+                                        <div id='divButtonTotal'>
+                                            <img src="../../../images/Main/Close.jpg" style="cursor: pointer" onclick="oprItem('Tb_03','divButtonTotal')" /></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999"
+                    id="Tb_03" style="display: block">
+                    <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           是否计入库存
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input id="chk_StockIs" checked type="checkbox" onclick="ChangeValue();" runat="server" /><asp:Label 
+                                ID="lblmsg" runat="server" Text="是"></asp:Label>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           是否允许负库存
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input id="chk_MinusIs" checked  type="checkbox" onclick="ChangeValue();" runat="server" /><asp:Label 
+                                ID="lblmsg_" runat="server" Text="是"></asp:Label>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                         主放仓库
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                          <asp:DropDownList ID="sel_StorageID" runat="server" Width="106px">
+                            </asp:DropDownList>
+                                                    </td>
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                        安全库存量
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <input type="text" id="txt_SafeStockNum" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  />
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            最低库存量
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_MinStockNum" MaxLength="50" runat="server" CssClass="tdinput" 
+                                 width="45%"></asp:TextBox>
+                                                    </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                         最高库存量
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <asp:TextBox ID="txt_MaxStockNum" runat="server" 
+                               CssClass="tdinput" Width="45%"></asp:TextBox>
+                        </td>
+                    </tr>
+                     <tr id="storage" style=" display:none" runat="server">
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                        当前库存量
+                        </td>
+                        <td height="20" class="tdColInput" width="23%" colspan="6">
+                            <input type="text" id="txt_Storage" name="txtConfirmorReal0" class="tdinput"
+                                 runat="server"  readonly />
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999">
+                    <tr>
+                        <td height="20" bgcolor="#F4F0ED" class="Blue">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                                <tr>
+                                    <td>
+                                        附加信息
+                                    </td>
+                                    <td align="right">
+                                        <div id='divButtonNote'>
+                                            <img src="../../../images/Main/Close.jpg" style="cursor: pointer" onclick="oprItem('Tb_04','divButtonNote')" /></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="99%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#999999"
+                    id="Tb_04" style="display: block">
+                    <tr>
+                        <td class="tdColTitle" width="10%">
+                            物品来源分类
+                        </td>
+                        <td class="tdColInput" width="23%">
+                            <asp:DropDownList ID="sel_Source" runat="server" Width="106px">
+                               <asp:ListItem Value="1">库存</asp:ListItem>
+                              <asp:ListItem Value="2">生产</asp:ListItem>
+                              <asp:ListItem Value="3">外购</asp:ListItem>
+                              <asp:ListItem Value="4">委托加工</asp:ListItem>
+                            </asp:DropDownList>
+                                                    </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                           产地
+                        </td>
+                        <td height="20" class="tdColInput" width="23%">
+                            <asp:TextBox ID="txt_FromAddr" runat="server"  CssClass="tdinput" Width="178px"></asp:TextBox>
+                        </td>
+                        <td height="20" align="right" class="tdColTitle" width="10%">
+                            图号
+                        </td>
+                        <td height="20" class="tdColInput" width="24%">
+                            <asp:TextBox ID="txt_DrawingNum" runat="server"  CssClass="tdinput" 
+                                Width="181px"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20" align="right" class="tdColTitle">
+                            启用状态
+                        </td>
+                        <td height="20" class="tdColInput">
+                            <select id="sel_UsedStatus" name="D2" runat="server" disabled="disabled">
+                              <option value=""></option>
+                              <option value="1">启用</option>
+                                <option value="0">停用</option>
+                            </select></td>
+                  <td height="20" align="right" class="tdColTitle">
+                            批准文号
+                        </td>
+                        <td height="20" align="left" class="tdColInput" Width="106px">
+                          <asp:TextBox ID="txt_FileNo" runat="server" 
+                               CssClass="tdinput" Width="166%"></asp:TextBox></td>
+                        <td class="tdColTitle">
+                            价格策略
+                        </td>
+                        <td class="tdColInput">
+                            <asp:TextBox ID="txt_PricePolicy" runat="server" 
+                               CssClass="tdinput" Width="71%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                       
+                     <td   align="right" class="tdColTitle">
+                         技术参数</td>
+                <td class="tdColInput" >
+                   <asp:TextBox ID="txt_Params" runat="server" CssClass="tdinput" 
+                                 Width="120px"></asp:TextBox>
+                </td>
+                        <td height="20" align="right" class="tdColTitle">
+                           常见问题
+                        </td>
+                        <td height="20" align="left" class="tdColInput">
+                            <asp:TextBox ID="txt_Questions" runat="server" CssClass="tdinput" 
+                                Width="176px" ></asp:TextBox>
+                        </td>
+                        
+                        <td class="tdColTitle" width="100" align"left">
+                            替代品名称</td>
+                        <td class="tdColInput" colspan="5">
+                          <asp:TextBox ID="txt_ReplaceName" runat="server" CssClass="tdinput" Width="71%"></asp:TextBox></td>
+                     
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle">
+                          物品描述信息
+                        </td>
+                        <td height="20" class="tdColInput">
+                            <asp:TextBox ID="txt_Description" runat="server" CssClass="tdinput" Width="77%"></asp:TextBox>
+                        </td>
+                  <td height="20" align="right" class="tdColTitle">
+                            备注
+                        </td>
+                        <td height="20" align="left" class="tdColInput" Width="106px">
+                            <asp:TextBox ID="txt_Remark" runat="server" CssClass="tdinput" 
+                                Width="168%"></asp:TextBox>
+                                                    </td>
+                           <td   align="right" class="tdColTitle">
+                               建档人<span class="redbold">*</span></td>
+                <td class="tdColInput" >
+                   <asp:TextBox ID="UserPrincipal" runat="server" CssClass="tdinput" 
+                                ReadOnly="true" Width="180px" Enabled="False"></asp:TextBox>
+                            <input type="hidden" id="txtPrincipal" runat="server" />
+                </td>
+                    </tr>
+                      <tr>
+                        <td height="20" align="right" class="tdColTitle">
+                      <%--    <input type="hidden" id="txt_Creator" runat="server" />--%>
+                           建档日期<span class="redbold">*</span>
+                        </td>
+                        <td height="20" align="left" class="tdColInput">
+                            <asp:TextBox ID="txt_CreateDate" runat="server" CssClass="tdinput" Width="77%" Enabled="False" 
+                               ></asp:TextBox>
+                        </td>
+                  <td height="20" align="right" class="tdColTitle">
+                            审核状态
+                        </td>
+                        <td height="20" align="left" class="tdColInput" Width="106px">
+                            <select id="sel_CheckStatus" name="D1" runat="server" disabled>
+                            <option value="0">草稿</option>
+                              <option value="1">已审</option>
+                            </select></td>
+                        <td class="tdColTitle">
+                            &nbsp;</td>
+                        <td class="tdColInput">
+                               <input type="hidden" id="txt_CheckUser" runat="server" />
+                        </td>
+                    </tr>
+                        <tr id="divConfirmor" style="display:none" runat="server">
+                        <td align="right" class="tdColTitle">
+                          审核日期</td>
+                        <td class="tdColInput">
+                              <asp:TextBox ID="txt_CheckDate" runat="server" 
+                               CssClass="tdinput" Width="77%" Enabled="False"></asp:TextBox>
+                        </td>
+                        <td class="tdColTitle">
+                            审核人
+                        </td>
+                        <td class="tdColInput">
+                            <asp:TextBox ID="txt_CheckUserName" runat="server" 
+                               CssClass="tdinput" Width="71%" Enabled="False" 
+                              ></asp:TextBox>
+                               </td >
+                        <td colspan="2" class="tdColTitle"> <input type="hidden" id="hidSearchCondition" runat="server" />
+                        <input type="hidden" id="hidFromPage" runat="server" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    
+<div id="userList" style="display:none;">
+<iframe id="aaaa" style="position: absolute; z-index: -1; width:400px; height:100px;" frameborder="1">  </iframe>
+<div style="background-color:#f1f1f1;padding:3px;padding-left:50px;">
+<a href="javascript:hidetxtUserList()" style="float:right;">关闭</a>
+</div>
+    <asp:TreeView ID="TreeView1" runat="server" ShowLines="True">
+    </asp:TreeView>
+</div>
+                                <p>
+                                    &nbsp;</p>
+                                <asp:HiddenField ID="hidListModuleID" runat="server" />
+    </form>
+                            <p>
+                                &nbsp;</p>
+</body>
+</html>
+
+<script language="javascript">
+var intOtherCorpInfoID = <%=intOtherCorpInfoID %>;
+</script>
+
+<script src="../../../js/office/SupplyChain/ProductInfoAdd.js" type="text/javascript"></script>

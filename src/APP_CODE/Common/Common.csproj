@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{799B538C-C2D1-43DE-8726-6B4CB61A88DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XBase.Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EasyLoger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\Web\Bin\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\Web\Bin\office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionUtil.cs" />
+    <Compile Include="BackgroundTask.cs" />
+    <Compile Include="CmdUtil.cs" />
+    <Compile Include="CommonYearSelectControl.cs" />
+    <Compile Include="ConstUtil.cs" />
+    <Compile Include="CRC.cs" />
+    <Compile Include="DateUtil.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="EnumType.cs" />
+    <Compile Include="ExcelUtil.cs" />
+    <Compile Include="ExpressionType.cs" />
+    <Compile Include="FileUtil.cs" />
+    <Compile Include="GenGridTemplateUtil.cs" />
+    <Compile Include="GetSafeData.cs" />
+    <Compile Include="GRARHandler.cs" />
+    <Compile Include="HtmlInputFileControl.cs" />
+    <Compile Include="HttpModule.cs" />
+    <Compile Include="JsonClass.cs" />
+    <Compile Include="LicenseValidator.cs" />
+    <Compile Include="ListBuilderUtil.cs" />
+    <Compile Include="MessageUtil.cs" />
+    <Compile Include="OutputToExecl.cs" />
+    <Compile Include="PageListUtil.cs" />
+    <Compile Include="PasswdUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PYShortUtil.cs" />
+    <Compile Include="ReportUtil.cs" />
+    <Compile Include="RequestUtil.cs" />
+    <Compile Include="SecurityUtil.cs" />
+    <Compile Include="SessionUtil.cs" />
+    <Compile Include="SMSender.cs" />
+    <Compile Include="StringUtil.cs" />
+    <Compile Include="UserInfoUtil.cs" />
+    <Compile Include="UserSessionManager.cs" />
+    <Compile Include="ValidateImage.cs" />
+    <Compile Include="ValidateUtil.cs" />
+    <Compile Include="XgLoger.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EasyLoger.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

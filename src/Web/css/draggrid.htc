@@ -1,0 +1,118 @@
+<PUBLIC:COMPONENT>
+ <PUBLIC:ATTACH EVENT="oncontentready"   ONEVENT="fnInit()"   />
+ <PUBLIC:ATTACH EVENT="onclick"   ONEVENT="fnClick()"   />
+ <METHOD NAME="menubarpush"/>
+ <SCRIPT LANGUAGE="JScript">
+  function fnInit()
+  {
+   for(var i=0;i<element.rows.length;i++)
+   {
+    var _tr = element.rows[i];
+    for(var j=0;j<_tr.cells.length;j++)
+    {
+     if(i==0)
+     {
+      _tr.attachEvent("onmousedown", fnMousedown);
+      _tr.attachEvent("onmousemove",fnMousemove);
+      _tr.attachEvent("onmouseover",fnMouseover);
+      _tr.attachEvent("onselectstart",fnCancel);
+      window.document.attachEvent("onmouseup", fnMouseup);
+      window.document.attachEvent("onmousemove",fnMouseMove);
+     }
+    }
+
+   }
+   var _line = window.document.createElement("DIV");
+   _line.style.position = "absolute";
+   _line.style.backgroundColor="Silver";
+   _line.style.width=1;
+   window.document.body.appendChild(_line);
+   element.splitLine = _line;
+   element.splitLine.style.display = "none";
+    }
+  function fnMouseover()
+  {
+   return;
+  }
+  function fnMouseMove(){
+   if(!element.splitlocked) return;
+   fnMousemove();  
+  }
+  function fnMousemove(){
+   var oEl = event.srcElement;
+   element.splitLine.style.left = window.event.x;
+   element.splitLine.style.top = getTop(element);
+   element.splitLine.style.height = element.parentElement.clientHeight;
+   if(element.splitlocked) return;
+   if(!IfSplitLocation(oEl)) return;
+  }
+  function fnClick(){
+   var oEl = event.srcElement;
+  }
+  function fnMousedown(){
+   var oEl = event.srcElement;
+   if(!IfSplitLocation(oEl)) return;
+   element.splitLine.style.display = "";
+   element.splitlocked  = true;
+   window.document.attachEvent("onselectstart",fnCancel);
+  }
+  function fnMouseup()
+  {
+   element.splitLine.style.display = "none";
+   element.splitlocked  = false;
+   element.document.body.style.cursor='default';
+   if(element.curResizeTD == null) return;
+   var otd = element.curResizeTD;
+   var otdLeft = getLeft(otd);
+   var otdwidth =  element.splitLine.style.pixelLeft - otdLeft
+   if(otdwidth < 0) return;
+   otd.style.width = otdwidth;
+   window.document.detachEvent("onselectstart",fnCancel);
+  }
+  function IfSplitLocation(oEl)
+  {
+   if(oEl.tagName == "DIV")
+    oEl = oEl.parentElement;
+   if(oEl.tagName == "TD")
+   {
+    if(Math.abs(event.offsetX - oEl.clientWidth) <= 5)
+    {
+     element.curResizeTD = oEl;
+     element.document.body.style.cursor='col-resize';
+    }
+    else if (Math.abs(event.offsetX) <= 5 && oEl.cellIndex>0){
+     if(oEl.cellIndex>0){
+      element.curResizeTD = oEl.parentElement.cells(oEl.cellIndex-1);
+      element.document.body.style.cursor='col-resize';
+     }
+    }
+    else{
+     element.curResizeTD = null;
+     element.document.body.style.cursor='default';
+     return false;
+    }
+   }
+   return true;
+  }
+  function getTop(e){
+   var t=e.offsetTop;
+   while(e=e.offsetParent){
+    t+=e.offsetTop;
+    }
+   return t;
+  }
+  function getLeft(e){
+   var l=e.offsetLeft;
+   while(e=e.offsetParent){
+    l+=e.offsetLeft;
+    }
+   return l;
+  }
+    function fnCancel()
+    {
+      window.event.returnValue = false;
+   return false;
+  }
+   </SCRIPT>
+</PUBLIC:COMPONENT>
+

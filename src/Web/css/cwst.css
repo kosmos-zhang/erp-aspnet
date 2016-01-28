@@ -1,0 +1,39 @@
+﻿BODY {  font-family: "tahoma";
+        color:#333333;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+        margin-top:0px;
+        margin-left:0px;
+        margin-right:0px;
+		margin-bottom:0px;
+		background-color:#666666;
+}
+#mainindex{
+        margin-top:10px;
+        margin-left:10px;
+		background-color:#F0f0f0;
+      	font-family:"tahoma";
+      	color:#333333;
+      	font-size:12px; 
+}
+.maintable{ filter:progid:dximagetransform.microsoft.dropshadow(color=#000000,offx=2,offy=3,positive=true)}
+  .Title{
+        font-family: "tahoma";
+        color:#000000;
+		font-weight: bolder;
+	    font-size: 16px;
+        line-height:120%;
+	    text-decoration:none;
+ }
+   .orderClick{ cursor:pointer;}
+ 
+ .orderTip{ margin-left:3px;}
+ .PageList{ 
+        font-family: "tahoma";
+        color:#1E5CBA;
+	    font-size: 12px;
+        line-height:120%;
+	    text-decoration:none;
+}
+.jPagerBar{FONT-SIZE: 12px;FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;}

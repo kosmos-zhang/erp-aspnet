@@ -1,0 +1,46 @@
+/**********************************************************************************
+*********   Version:5.0b 0001#
+*********   Code: EvA
+*********   Designer's Mail: iameva@goowy.com, eva.everlasting@gmail.com
+*********   Optimal Configuation:Best view 1024*768 dpi,
+*********   Ture color, Javascript Enabled.
+*********   Browser support:MSIE 60+ Mozilla 2.0+ OPERA 8.0+ Safari 3.0Beta
+*********   Build 20080714
+*********   For New Company eShowroom!!!
+*********************************************************************************	
+*********   URL:\css\company\base.css
+*********   lastupdate: 2008.07.14 10:27 AM	  
+**********************************************************************************/
+.highslide-body label{font:12px tahoma; text-align:left; cursor:pointer}
+.highslide-body table{display:block}
+.highslide-body table td{background-attachment:scroll; background-color:#fff}
+h3.notice{clear:both; position:relative; background:url("/Company/image/eva_img/new_chat.gif") no-repeat 60px -2px; color:#2078a8; padding:3px 8px 3px 25px; margin:2px auto; font-size:14px; line-height:normal; font-weight:600}
+.overlabel{position:absolute; top:38px; margin-left:3px; z-index:10; color:#ccc}
+#add_friend .overlabel{top:60px}
+.highslide-body .emailText{display:block; margin:0 auto; width:250px; height:19px; background-color:#f5fafd; border:1px solid #a5acb2; padding:1px 1px 2px 2px; border-top:1px solid #999; border-left:1px solid #999; border-bottom:1px solid #e2ecf2; border-right:1px solid #ddd; color:#333}
+.highslide-body .msgText{width:200px; height:16px; background-color:#f5fafd; border:1px solid #a5acb2; padding:2px 1px 2px 2px; border-top:1px solid #999; border-left:1px solid #999; border-bottom:1px solid #e2ecf2; border-right:1px solid #ddd; color:#333}
+.highslide-body{background-color:#fff}
+.highslide-body p{margin:0 auto; padding-bottom:5px; display:block; overflow:hidden; clear:both}
+.highslide-body p .submit{margin:0 auto; margin-right:15px}
+.highslide-body .msgContent{vertical-align:middle; width:200px; margin:0 auto; height:80px; background-color:#f5fafd; border:1px solid #a5acb2; padding:1px 1px 2px 2px; border-top:1px solid #999; border-left:1px solid #999; border-bottom:1px solid #e2ecf2; border-right:1px solid #ddd; color:#333; margin-top:5px}
+.add_friendAvatar{width:55px; margin:0; display:block; float:left}
+.add_friendAvatar img{width:50px; margin:0 auto; margin-top:10px; padding:2px; border:1px #ECECEC solid}
+.highslide-body .content{float:right; margin:0; display:block; width:215px}
+.highslide-body .add_friendMsgContent{vertical-align:middle; width:200px; height:80px; background-color:#f5fafd; border:1px solid #a5acb2; padding:1px 1px 2px 2px; border-top:1px solid #999; border-left:1px solid #999; border-bottom:1px solid #e2ecf2; border-right:1px solid #ddd; color:#333; margin-top:5px}
+h3#pop_message_target{text-align:left; font-size:14px}
+#pic_password .highslide-body .msgText{width:180px}
+h3#pic_password_target{background:url("http://www.ebankon.com/Company/image/eva_img/delete.png") no-repeat 52px 0px; text-align:center; font-size:14px}
+.highslide-body .submit{cursor:pointer; margin-left:15px; margin-right:20px; margin-top:20px}
+.highslide-html{background:#fff;  color:#006da3}
+.highslide-html-blur{}
+.highslide-html-content{position:absolute; display:none; background-color:#fff}
+.highslide-display-block{display:block}
+.highslide-display-none{display:none}
+.highslide-loading{display:block; color:black; font-size:8pt; font-family:sans-serif; font-weight:bold; padding:2px; border:1px solid black; background-color:white}
+
+.highslideButton{height:15px; padding:2px; padding-bottom:8px}
+.control{float:right; margin:0 15px; font-size:11px; text-decoration:none; text-transform:uppercase; color:#222}
+.control:hover{color:#FF339D; text-decoration:none}
+.highslide-move{cursor:move}
+.highslide-credits{display:none}
+.highslide-dimming{background:transparent; position:absolute; width:100%; left:0}
